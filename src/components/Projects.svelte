@@ -1,77 +1,37 @@
+<script>
+    import Project from "./Project.svelte";
+    import Input from "../shared/Input.svelte";
+    import Button from "../shared/Button.svelte";
+    import projectStore from "../stores/projectStore";
+</script>
+
 <div class="container">
     <div class="py-5">
         <div class="row align-items-center">
-            <div class="col-md-5">
+            <div class="col-lg-5 col-md-3">
                 <h1 class="title-md">Projects</h1>
             </div>
-            <div class="col-md-7 d-flex gap-1">
-                <input
-                    type="text"
-                    class="input d-inline"
+            <div class="col-lg-7 col-md-9 d-lg-flex d-md-flex d-block">
+                <Input
+                    withLabel={false}
                     placeholder="Enter keyword..."
+                    class="d-inline me-2"
                 />
-                <button class="btn btn-primary">Search</button>
+                <Button>Search</Button>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-3">
-                <div class="card">
-                    <h3 class="card-title">Bugs Tracker</h3>
-                    <small class="issue">21 Issues</small>
-                    <div>
-                        <span class="progress-bar-value">50%</span>
-                        <div class="progress-bar">
-                            <div class="progress-bar-fill" />
-                        </div>
-                    </div>
-                    <div class="tags">
-                        <span class="tag">Javascript</span>
-                        <span class="tag">Web</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3">
-                <div class="card">
-                    <h3 class="card-title">Web Links Management</h3>
-                    <small class="issue">21 Issues</small>
-                    <div>
-                        <span class="progress-bar-value">50%</span>
-                        <div class="progress-bar">
-                            <div class="progress-bar-fill" />
-                        </div>
-                    </div>
-                    <div class="tags">
-                        <span class="tag">Javascript</span>
-                        <span class="tag">Web</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3">
-                <div class="card">
-                    <h3 class="card-title">TODOin Web Application</h3>
-                    <small class="issue">21 Issues</small>
-                    <div>
-                        <span class="progress-bar-value">50%</span>
-                        <div class="progress-bar">
-                            <div class="progress-bar-fill" />
-                        </div>
-                    </div>
-                    <div class="tags">
-                        <span class="tag">Javascript</span>
-                        <span class="tag">Web</span>
-                    </div>
-                </div>
-            </div>
+            {#each $projectStore as { id, title, issues, tags, completedIssues } (id)}
+                <Project {title} {issues} {tags} {completedIssues} />
+            {:else}
+                <p class="text-red text-center py-4">
+                    Project not created yet.
+                </p>
+            {/each}
         </div>
     </div>
 </div>
 
 <style>
-    .issue {
-        display: block;
-        color: var(--gray-color-2);
-        font-weight: var(--font-medium);
-        margin-bottom: 1rem;
-    }
 </style>

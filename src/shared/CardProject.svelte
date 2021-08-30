@@ -41,6 +41,7 @@
         background-color: var(--white-color);
         border-radius: var(--border-radius);
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
         padding: 2rem;
         color: var(--black-color);
         border-bottom: 3px solid var(--primary-color);

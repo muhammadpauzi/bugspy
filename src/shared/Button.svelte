@@ -15,7 +15,7 @@
 <style>
     .btn {
         white-space: nowrap;
-        padding: .9rem 1.5rem;
+        padding: 0.9rem 1.5rem;
         color: var(--white-color);
         font-size: 0.9em;
         border: none;
@@ -24,6 +24,7 @@
         font-weight: var(--font-medium);
         margin-bottom: 1rem;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
         transition: background-color 0.3s;
     }
 

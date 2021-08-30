@@ -3,8 +3,10 @@
     import { modalCreateStore } from "../stores/modalStore";
 </script>
 
-<div class="container">
-    <nav class="navbar d-flex py-4 align-items-center justify-content-between">
+<nav class="navbar">
+    <div
+        class="container d-flex py-3 align-items-center justify-content-between"
+    >
         <a href="/" class="logo">Bugspy</a>
 
         <Button
@@ -13,19 +15,23 @@
             }}
             resetMargin={true}>Create Project</Button
         >
-    </nav>
-</div>
+    </div>
+</nav>
 
 <style>
     .navbar {
         border-bottom-width: 1px;
         border-bottom-style: solid;
         border-color: var(--gray-color);
+        background-color: var(--white-color);
     }
 
     .logo {
         font-size: 1.5em;
         color: var(--primary-color);
         font-weight: var(--font-bold);
+    }
+
+    @media screen and (max-width: 567px) {
     }
 </style>

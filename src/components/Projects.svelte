@@ -12,12 +12,7 @@
                 <h1 class="title-md">Projects</h1>
             </div>
             <div class="col-lg-7 col-md-9 d-lg-flex d-md-flex d-block">
-                <Input
-                    withLabel={false}
-                    placeholder="Enter keyword..."
-                    class="d-inline me-2"
-                />
-                <Button>Search</Button>
+                <Input withLabel={false} placeholder="Enter keyword..." />
             </div>
         </div>
 

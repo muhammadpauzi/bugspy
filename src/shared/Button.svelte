@@ -15,7 +15,7 @@
 <style>
     .btn {
         white-space: nowrap;
-        padding: 1rem 2rem;
+        padding: .9rem 1.5rem;
         color: var(--white-color);
         font-size: 0.9em;
         border: none;

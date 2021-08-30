@@ -28,7 +28,6 @@
     <form method="POST" on:submit|preventDefault={handleSubmit}>
         <Input
             labelText="Project Title"
-            placeholder="Enter project title..."
             inputModal={true}
             required={true}
             bind:value={title}

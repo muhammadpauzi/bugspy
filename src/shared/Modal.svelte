@@ -29,7 +29,7 @@
 
 <style>
     .modal-backdrop {
-        position: absolute;
+        position: fixed;
         top: 0;
         visibility: hidden;
         left: 0;

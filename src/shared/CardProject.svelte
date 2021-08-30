@@ -38,7 +38,7 @@
 <style>
     .card {
         user-select: none;
-        background-color: var(--white-color-2);
+        background-color: var(--white-color);
         border-radius: var(--border-radius);
         cursor: pointer;
         padding: 2rem;

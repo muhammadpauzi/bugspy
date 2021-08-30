@@ -1,0 +1,17 @@
+<footer class="footer">
+    <div class="container py-4">
+        <p>Created with <span class="text-red">❤</span> by Muhammad Pauzi.</p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        text-align: center;
+        font-weight: var(--font-medium);
+        background-color: var(--white-color);
+        color: var(--black-color);
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-color: var(--gray-color);
+    }
+</style>

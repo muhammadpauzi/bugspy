@@ -72,7 +72,7 @@
     .issue {
         display: block;
         color: var(--gray-color-2);
-        font-weight: var(--font-medium);
+        font-weight: var(--font-regular);
         margin-bottom: 1rem;
     }
 </style>

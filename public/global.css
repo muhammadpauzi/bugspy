@@ -174,4 +174,5 @@ li{
 .text-red{
 	font-weight: var(--font-medium);
 	color: var(--red-color) !important;
+	fill: var(--red-color) !important;
 }

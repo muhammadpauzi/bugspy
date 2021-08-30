@@ -1,7 +1,6 @@
 <script>
     import Project from "./Project.svelte";
     import Input from "../shared/Input.svelte";
-    import Button from "../shared/Button.svelte";
     import projectStore from "../stores/projectStore";
 </script>
 
@@ -18,9 +17,9 @@
 
         <div class="row">
             {#each $projectStore as { id, title, issues, tags, completedIssues } (id)}
-                <Project {title} {issues} {tags} {completedIssues} />
+                <Project {id} {title} {issues} {tags} {completedIssues} />
             {:else}
-                <p class="text-red text-center py-4">
+                <p class="text-red text-center py-5">
                     Project not created yet.
                 </p>
             {/each}
@@ -29,4 +28,7 @@
 </div>
 
 <style>
+    div.container {
+        min-height: 100vh;
+    }
 </style>

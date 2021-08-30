@@ -1,6 +1,9 @@
 <script>
+    import Icon from "../shared/Icon.svelte";
     import { tweened } from "svelte/motion";
+    import projectStore, { deleteProject } from "../stores/projectStore";
 
+    export let id;
     export let title = "";
     export let issues = 0;
     export let tags = [];
@@ -10,10 +13,21 @@
         duration: 1500,
     });
     $: tweenedCompletedIssues.set(percentage);
+
+    const handleDeleteProject = (id) => {
+        if (confirm("Are you sure to delete the project?")) {
+            $projectStore = deleteProject(id);
+        }
+    };
 </script>
 
 <div class="card">
-    <h3 class="card-title">{title}</h3>
+    <div class="d-flex justify-content-between align-items-center">
+        <h3 class="card-title">{title}</h3>
+        <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>
+            <Icon name="trash" />
+        </div>
+    </div>
     <small class="issue">{issues} Issues</small>
     <div>
         <span class="progress-bar-value"

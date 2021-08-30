@@ -14,6 +14,7 @@
             issues: 0,
             completedIssues: 0,
             tags: ["Javascript", "Web"],
+            dateCreated: Date.now(),
         };
         // re-render project's card
         $projectStore = createProject(project);

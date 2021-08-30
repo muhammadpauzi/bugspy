@@ -2,7 +2,6 @@
     import { modalCreateStore } from "../stores/modalStore";
 
     export let show = false;
-    $: console.log(show);
     export let title = "";
 </script>
 
@@ -81,7 +80,7 @@
     }
 
     .modal-body {
-        padding: 1.5rem 0;
+        padding: 2rem 0 1.5rem 0;
     }
 
     @media screen and (max-width: 567px) {

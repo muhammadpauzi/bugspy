@@ -27,6 +27,7 @@
         color: var(--gray-color-2);
         background-color: var(--white-color);
         width: 100%;
+        border-radius: var(--border-radius);
         transition-property: outline, color;
         transition-duration: 0.3s;
         font-weight: var(--font-regular);

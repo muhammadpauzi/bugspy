@@ -17,11 +17,14 @@
         white-space: nowrap;
         padding: 0.9rem 1.5rem;
         color: var(--white-color);
-        font-size: 0.9em;
+        font-size: 0.8em;
+        border-radius: var(--border-radius);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
         border: none;
         display: inline-block;
         user-select: none;
-        font-weight: var(--font-medium);
+        font-weight: var(--font-bold);
         margin-bottom: 1rem;
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;

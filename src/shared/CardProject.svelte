@@ -43,6 +43,7 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
         padding: 2rem;
+        border: 1px solid var(--white-color-2);
         color: var(--black-color);
         border-bottom: 3px solid var(--primary-color);
         transition-property: box-shadow, transform;

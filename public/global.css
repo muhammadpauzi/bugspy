@@ -1,5 +1,5 @@
 :root{
-	--background-color: #ECEFF4;
+	--background-color: #fbfbfb;
 	--primary-color: #5D5ADD;
 	--primary-color-2: #4a48c2;
 	--backdrop-color: rgb(0, 0, 0, .8);
@@ -95,7 +95,7 @@ li{
 
 .tag{
 	padding: .6rem .7rem;
-	background-color: var(--background-color);
+	background-color: var(--white-color);
 	border-radius: var(--border-radius);
 	font-weight: var(--font-medium);
 	color: var(--black-color);
@@ -140,11 +140,9 @@ li{
 .label-info, .input-label{
 	display: block;
     color: var(--black-color);
-    font-weight: var(--font-regular);
+    font-weight: var(--font-bold);
+	font-size: .9em;
     margin-bottom: .5rem;
-}
-
-.label-info{
 	text-transform: uppercase;
 }
 

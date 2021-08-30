@@ -8,6 +8,4 @@
     export let completedIssues;
 </script>
 
-<div class="col-lg-4 col-md-6 mb-3">
-    <CardProject {id} {title} {issues} {tags} {completedIssues} />
-</div>
+<CardProject {id} {title} {issues} {tags} {completedIssues} />

@@ -11,8 +11,8 @@
         const project = {
             id: Math.floor(Math.random() * 1000) + Date.now(),
             title,
-            issues: 0,
-            completedIssues: 0,
+            issues: Math.floor(Math.random() * 100 + 50),
+            completedIssues: Math.floor(Math.random() * 49),
             tags: ["Javascript", "Web"],
             dateCreated: Date.now(),
         };

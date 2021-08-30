@@ -1,6 +1,7 @@
 <script>
     import Icon from "../shared/Icon.svelte";
     import { tweened } from "svelte/motion";
+    import { expoInOut } from "svelte/easing";
     import projectStore, { deleteProject } from "../stores/projectStore";
 
     export let id;
@@ -11,6 +12,7 @@
     let percentage = Math.floor((100 / issues) * completedIssues) || 0;
     let tweenedCompletedIssues = tweened(0, {
         duration: 1500,
+        easing: expoInOut,
     });
     $: tweenedCompletedIssues.set(percentage);
 
@@ -21,7 +23,7 @@
     };
 </script>
 
-<div class="card">
+<div class="card" fade:in={{ duration: 3000 }}>
     <div class="d-flex justify-content-between align-items-center">
         <h3 class="card-title">{title}</h3>
         <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>

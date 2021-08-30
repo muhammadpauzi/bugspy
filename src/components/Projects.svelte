@@ -1,4 +1,6 @@
 <script>
+    import { scale } from "svelte/transition";
+    import { flip } from "svelte/animate";
     import Project from "./Project.svelte";
     import Input from "../shared/Input.svelte";
     import projectStore from "../stores/projectStore";
@@ -17,7 +19,14 @@
 
         <div class="row">
             {#each $projectStore as { id, title, issues, tags, completedIssues } (id)}
-                <Project {id} {title} {issues} {tags} {completedIssues} />
+                <div
+                    in:scale
+                    out:scale
+                    animate:flip={{ duration: 500 }}
+                    class="col-lg-4 col-md-6 mb-3"
+                >
+                    <Project {id} {title} {issues} {tags} {completedIssues} />
+                </div>
             {:else}
                 <p class="text-red text-center py-5">
                     Project not created yet.

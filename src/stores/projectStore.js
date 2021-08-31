@@ -52,18 +52,21 @@ const getCurrentProjects = (keyword = "") => {
     }
 }
 
+const saveProjects = (projects) => {
+    localStorage.setItem(DBProject, JSON.stringify(projects));
+    return sort(projects);
+}
+
 const createProject = (project) => {
     let projects = getCurrentProjects();
     projects.push(project);
-    localStorage.setItem(DBProject, JSON.stringify(projects));
-    return sort(projects);
+    return saveProjects(projects);
 }
 
 const deleteProject = (id) => {
     let projects = getCurrentProjects();
     projects = projects.filter(project => project.id !== id);
-    localStorage.setItem(DBProject, JSON.stringify(projects));
-    return sort(projects);
+    return saveProjects(projects);
 }
 
 const projectStore = writable(getCurrentProjects());

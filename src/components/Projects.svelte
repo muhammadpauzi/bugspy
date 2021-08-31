@@ -3,7 +3,12 @@
     import { flip } from "svelte/animate";
     import Project from "./Project.svelte";
     import Input from "../shared/Input.svelte";
-    import projectStore from "../stores/projectStore";
+    import projectStore, { getCurrentProjects } from "../stores/projectStore";
+
+    const handleSearchProject = (e) => {
+        $projectStore = getCurrentProjects(e.target.value);
+        console.log($projectStore);
+    };
 </script>
 
 <div class="container">
@@ -13,7 +18,11 @@
                 <h1 class="title-md">Projects</h1>
             </div>
             <div class="col-lg-7 col-md-9 d-lg-flex d-md-flex d-block">
-                <Input withLabel={false} placeholder="Enter keyword..." />
+                <Input
+                    withLabel={false}
+                    placeholder="Enter keyword..."
+                    on:input={handleSearchProject}
+                />
             </div>
         </div>
 

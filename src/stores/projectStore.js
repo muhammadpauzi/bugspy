@@ -32,14 +32,19 @@ const sort = (data = [], sortBy = "2") => {
 }
 
 
-const getCurrentProjects = () => {
+const getCurrentProjects = (keyword = "") => {
     try {
         let projects = localStorage.getItem(DBProject);
+        // projects's key not exists on localStorage
         if (projects == null) {
             localStorage.setItem(DBProject, "[]");
             return [];
         }
         projects = JSON.parse(projects);
+        // search
+        if (keyword) {
+            projects = projects.filter(project => project.title.includes(keyword));
+        }
         return sort(projects);
     } catch (err) {
         localStorage.setItem(DBProject, "[]");

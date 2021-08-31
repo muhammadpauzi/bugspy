@@ -14,6 +14,7 @@
     class:input-modal={inputModal}
     placeholder={$$props.placeholder}
     required={$$props.required}
+    on:input
     bind:value
 />
 

@@ -6,6 +6,7 @@
     export let issues;
     export let tags;
     export let completedIssues;
+    export let priority;
 </script>
 
-<CardProject {id} {title} {issues} {tags} {completedIssues} />
+<CardProject {id} {title} {issues} {tags} {completedIssues} {priority} />

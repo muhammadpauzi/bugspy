@@ -5,7 +5,9 @@
     import { modalCreateStore } from "../stores/modalStore";
     import projectStore, { createProject } from "../stores/projectStore";
 
+    const options = ["No", "High", "Medium", "Low"];
     let title = "";
+    let selectedOption = "";
 
     const handleSubmit = () => {
         const project = {
@@ -15,6 +17,7 @@
             completedIssues: Math.floor(Math.random() * 49),
             tags: ["Javascript", "Web"],
             dateCreated: Date.now(),
+            priority: selectedOption,
         };
         // re-render project's card
         $projectStore = createProject(project);
@@ -23,6 +26,14 @@
         // reset input's value
         title = "";
     };
+
+    // const handleChangePrioritySelect = (e) => {
+    //     options.map((option) => {
+    //         if (option.toLowerCase() === selectedOption.toLowerCase()) {
+    //             alert("You cannot edit the priority!!!");
+    //         }
+    //     });
+    // };
 </script>
 
 <Modal show={$modalCreateStore} title="Create Project">
@@ -32,6 +43,14 @@
             inputModal={true}
             required={true}
             bind:value={title}
+        />
+        <Input
+            type="select"
+            labelText="Project Priority"
+            placeholder="Select Priority"
+            inputModal={true}
+            {options}
+            bind:value={selectedOption}
         />
         <Button>Create</Button>
     </form>

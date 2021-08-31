@@ -9,6 +9,7 @@
     export let issues = 0;
     export let tags = [];
     export let completedIssues = 0;
+    export let priority = "no";
     let percentage = Math.floor((100 / issues) * completedIssues) || 0;
     let tweenedCompletedIssues = tweened(0, {
         duration: 1500,
@@ -23,7 +24,7 @@
     };
 </script>
 
-<div class="card" fade:in={{ duration: 3000 }}>
+<div class={`card ${priority || ""}`} fade:in={{ duration: 3000 }}>
     <div class="d-flex justify-content-between align-items-center">
         <h3 class="card-title">{title}</h3>
         <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>
@@ -60,11 +61,28 @@
         -webkit-tap-highlight-color: transparent;
         padding: 2rem;
         border: 1px solid var(--white-color-2);
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
         color: var(--black-color);
-        border-bottom: 3px solid var(--primary-color);
         transition-property: box-shadow, transform;
         transition-duration: 0.3s;
         transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .card.no {
+        border-bottom-color: var(--white-color-2);
+    }
+
+    .card.low {
+        border-bottom-color: var(--primary-color);
+    }
+
+    .card.medium {
+        border-bottom-color: var(--orange-color);
+    }
+
+    .card.high {
+        border-bottom-color: var(--red-color);
     }
 
     .card:hover {

@@ -1,22 +1,42 @@
 <script>
+    export let type = "text";
     export let withLabel = true;
     export let labelText = "";
     export let inputModal = false;
     export let value = "";
+    export let options = [];
 </script>
 
 {#if withLabel}
     <label for="" class="input-label">{labelText}</label>
 {/if}
-<input
-    type="text"
-    class={`input ${$$props.class}`}
-    class:input-modal={inputModal}
-    placeholder={$$props.placeholder}
-    required={$$props.required}
-    on:input
-    bind:value
-/>
+
+{#if type == "text"}
+    <input
+        type="text"
+        class={`input ${$$props.class}`}
+        class:input-modal={inputModal}
+        placeholder={$$props.placeholder}
+        required={$$props.required}
+        on:input
+        bind:value
+    />
+{/if}
+
+{#if type == "select"}
+    <select
+        class={`input ${$$props.class}`}
+        class:input-modal={inputModal}
+        required={$$props.required}
+        on:change
+        bind:value
+    >
+        <option disabled selected value="">{$$props.placeholder}</option>
+        {#each options as option, i (i)}
+            <option value={option.toLowerCase()}>{option}</option>
+        {/each}
+    </select>
+{/if}
 
 <style>
     .input {

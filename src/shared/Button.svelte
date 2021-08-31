@@ -29,6 +29,11 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
         transition: background-color 0.3s;
+        transition: transform 0.1s;
+    }
+
+    .btn:active {
+        transform: scale(1.01, 1.02);
     }
 
     .btn-primary {

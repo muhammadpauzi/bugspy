@@ -94,6 +94,7 @@ li{
 }
 
 .tag{
+	display: block !important;
 	padding: .6rem .7rem;
 	background-color: var(--white-color);
 	border-radius: var(--border-radius);

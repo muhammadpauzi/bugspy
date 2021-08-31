@@ -14,4 +14,10 @@
         border-top-style: solid;
         border-color: var(--gray-color);
     }
+
+    @media screen and (max-width: 567px) {
+        .footer p {
+            font-size: 0.8em;
+        }
+    }
 </style>

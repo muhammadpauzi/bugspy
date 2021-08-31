@@ -27,21 +27,14 @@
         </div>
 
         <div class="row">
-            {#each $projectStore as { id, title, issues, tags, completedIssues, priority } (id)}
+            {#each $projectStore as project (project.id)}
                 <div
                     in:scale
                     out:scale
                     animate:flip={{ duration: 500 }}
                     class="col-lg-4 col-md-6 mb-3"
                 >
-                    <Project
-                        {id}
-                        {title}
-                        {issues}
-                        {tags}
-                        {completedIssues}
-                        {priority}
-                    />
+                    <Project {project} />
                 </div>
             {:else}
                 <p class="text-red text-center py-5">

@@ -28,8 +28,7 @@
         margin-bottom: 1rem;
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
-        transition: background-color 0.3s;
-        transition: transform 0.1s;
+        transition: background-color 0.3s, transition 0.1s;
     }
 
     .btn:active {

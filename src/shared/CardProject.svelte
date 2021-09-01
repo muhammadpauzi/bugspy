@@ -39,7 +39,10 @@
             <h3 class="card-title">
                 {title}
             </h3>
-            <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>
+            <div
+                class="text-red px-2"
+                on:click|stopPropagation={() => handleDeleteProject(id)}
+            >
                 <Icon name="trash" />
             </div>
         </div>

@@ -34,7 +34,7 @@
         pageStore.set(BUGS_PAGE);
     }}
 >
-    <div class={`card ${priority || ""}`} fade:in={{ duration: 3000 }}>
+    <div class={`card ${priority || ""}`}>
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">
                 {title}

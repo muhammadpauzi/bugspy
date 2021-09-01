@@ -3,7 +3,7 @@
     import Input from "../shared/Input.svelte";
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
-    import pageStore, { BUG_PROJECT_ID } from "../stores/pageStore";
+    import { BUG_PROJECT_ID } from "../stores/pageStore";
     import bugStore, { createBug } from "../stores/bugStore";
 
     const options = ["No", "High", "Medium", "Low"];

@@ -1,12 +1,6 @@
 <script>
     import Icon from "../shared/Icon.svelte";
-    import { tweened } from "svelte/motion";
-    import { expoInOut } from "svelte/easing";
     import bugStore, { deleteBug } from "../stores/bugStore";
-    import pageStore, {
-        BUGS_PAGE,
-        changeBugProjectId,
-    } from "../stores/pageStore";
 
     export let id;
     export let title = "";
@@ -20,7 +14,7 @@
     };
 </script>
 
-<div class={`card ${priority || ""}`} fade:in={{ duration: 3000 }}>
+<div class={`card ${priority || ""}`}>
     <div class="d-flex justify-content-between align-items-center">
         <h3 class="card-title">
             {title}

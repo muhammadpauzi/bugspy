@@ -3,6 +3,10 @@
     import { tweened } from "svelte/motion";
     import { expoInOut } from "svelte/easing";
     import projectStore, { deleteProject } from "../stores/projectStore";
+    import pageStore, {
+        BUGS_PAGE,
+        changeBugProjectId,
+    } from "../stores/pageStore";
 
     export let id;
     export let title = "";
@@ -24,32 +28,42 @@
     };
 </script>
 
-<div class={`card ${priority || ""}`} fade:in={{ duration: 3000 }}>
-    <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title">{title}</h3>
-        <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>
-            <Icon name="trash" />
+<div
+    on:click={() => {
+        console.log("Change");
+        changeBugProjectId(id);
+        pageStore.set(BUGS_PAGE);
+    }}
+>
+    <div class={`card ${priority || ""}`} fade:in={{ duration: 3000 }}>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="card-title">
+                {title}
+            </h3>
+            <div class="text-red px-2" on:click={() => handleDeleteProject(id)}>
+                <Icon name="trash" />
+            </div>
         </div>
+        <small class="issue">{issues} Issues</small>
+        <div>
+            <span class="progress-bar-value"
+                >{$tweenedCompletedIssues.toFixed(0)}%</span
+            >
+            <div class="progress-bar">
+                <div
+                    class="progress-bar-fill"
+                    style="width: {$tweenedCompletedIssues.toFixed(0)}%"
+                />
+            </div>
+        </div>
+        {#if tags.length > 0}
+            <div class="tags">
+                {#each tags as tag}
+                    <span class="tag">{tag}</span>
+                {/each}
+            </div>
+        {/if}
     </div>
-    <small class="issue">{issues} Issues</small>
-    <div>
-        <span class="progress-bar-value"
-            >{$tweenedCompletedIssues.toFixed(0)}%</span
-        >
-        <div class="progress-bar">
-            <div
-                class="progress-bar-fill"
-                style="width: {$tweenedCompletedIssues.toFixed(0)}%"
-            />
-        </div>
-    </div>
-    {#if tags.length > 0}
-        <div class="tags">
-            {#each tags as tag}
-                <span class="tag">{tag}</span>
-            {/each}
-        </div>
-    {/if}
 </div>
 
 <style>

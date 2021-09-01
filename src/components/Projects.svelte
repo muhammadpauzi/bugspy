@@ -30,7 +30,7 @@
             {#each $projectStore as project (project.id)}
                 <div
                     in:scale
-                    out:scale
+                    out:scale|local
                     animate:flip={{ duration: 500 }}
                     class="col-lg-4 col-md-6 mb-3"
                 >

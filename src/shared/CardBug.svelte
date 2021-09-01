@@ -1,6 +1,6 @@
 <script>
     import Icon from "../shared/Icon.svelte";
-    import bugStore, { deleteBug } from "../stores/bugStore";
+    import bugStore, { changeSolveBug, deleteBug } from "../stores/bugStore";
 
     export let id;
     export let title = "";
@@ -15,23 +15,29 @@
     };
 </script>
 
-<div class={`card ${priority || ""}`}>
-    <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title mb-2">
-            {title}
-            {solved ? "solved" : ""}
-        </h3>
-        <div class="text-red px-2" on:click={() => handleDeleteBug(id)}>
-            <Icon name="trash" />
+<div
+    on:dblclick={() => {
+        $bugStore = changeSolveBug(id);
+    }}
+>
+    <div class={`card ${priority || ""}`}>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="card-title mb-2">
+                {title}
+                {solved ? "solved" : ""}
+            </h3>
+            <div class="text-red px-2" on:click={() => handleDeleteBug(id)}>
+                <Icon name="trash" />
+            </div>
         </div>
+        {#if tags.length > 0}
+            <div class="tags">
+                {#each tags as tag}
+                    <span class="tag">{tag}</span>
+                {/each}
+            </div>
+        {/if}
     </div>
-    {#if tags.length > 0}
-        <div class="tags">
-            {#each tags as tag}
-                <span class="tag">{tag}</span>
-            {/each}
-        </div>
-    {/if}
 </div>
 
 <style>

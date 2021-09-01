@@ -11,12 +11,10 @@
     let selectedOption = "";
 
     const handleSubmit = () => {
-        let solved = Math.round(Math.random() * 2);
-        console.log(solved);
         const bug = {
             id: Math.floor(Math.random() * 1000) + Date.now(),
             title,
-            solved,
+            solved: false,
             projectId: BUG_PROJECT_ID,
             tags: ["Bug", "Feature"],
             dateCreated: Date.now(),

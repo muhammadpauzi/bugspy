@@ -77,6 +77,19 @@ const deleteBug = (id) => {
     return saveBugs(bugs);
 }
 
+const changeSolveBug = (id) => {
+    let bugs = getCurrentBugs();
+    bugs = bugs.map(bug => {
+        if (bug.id === id) {
+            bug.solved = !bug.solved;
+        }
+
+        return bug;
+    });
+    console.log(bugs);
+    return saveBugs(bugs);
+}
+
 const bugStore = writable(getCurrentBugs());
 
 export default bugStore;
@@ -84,5 +97,6 @@ export default bugStore;
 export {
     getCurrentBugs,
     createBug,
-    deleteBug
+    deleteBug,
+    changeSolveBug
 }

@@ -5,6 +5,7 @@
     export let id;
     export let title = "";
     export let tags = [];
+    export let solved = false;
     export let priority = "no";
 
     const handleDeleteBug = (id) => {
@@ -16,8 +17,9 @@
 
 <div class={`card ${priority || ""}`}>
     <div class="d-flex justify-content-between align-items-center">
-        <h3 class="card-title">
+        <h3 class="card-title mb-2">
             {title}
+            {solved ? "solved" : ""}
         </h3>
         <div class="text-red px-2" on:click={() => handleDeleteBug(id)}>
             <Icon name="trash" />

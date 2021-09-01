@@ -30,7 +30,22 @@
         </div>
 
         <div class="row">
-            {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID) as bug (bug.id)}
+            <small class="label-info">Active Bugs</small>
+            {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && !bug.solved) as bug (bug.id)}
+                <div
+                    in:scale
+                    out:scale|local
+                    animate:flip={{ duration: 500 }}
+                    class="col-lg-4 col-md-6 mb-3"
+                >
+                    <Bug {bug} />
+                </div>
+            {:else}
+                <p class="text-red text-center py-5">Bugs not created yet.</p>
+            {/each}
+
+            <small class="label-info">Solved Bugs</small>
+            {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && bug.solved) as bug (bug.id)}
                 <div
                     in:scale
                     out:scale|local

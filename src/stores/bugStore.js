@@ -32,7 +32,7 @@ const sort = (data = [], sortBy = "2") => {
 }
 
 
-const getCurrentBugs = (keyword = "") => {
+const getCurrentBugs = (keyword = "", solved = false) => {
     try {
         let bugs = localStorage.getItem(DBBugs);
         // bugs's key not exists on localStorage
@@ -45,6 +45,14 @@ const getCurrentBugs = (keyword = "") => {
         if (keyword) {
             bugs = bugs.filter(bug => bug.title.includes(keyword));
         }
+        // let solvedBugs = [];
+        // let unsolvedBugs = [];
+        // if (solved) {
+        //     solvedBugs = bugs.filter(bug => bug.solved);
+        // } else {
+        //     unsolvedBugs = bugs.filter(bug => !bug.solved);
+        // }
+
         return sort(bugs);
     } catch (err) {
         localStorage.setItem(DBBugs, "[]");

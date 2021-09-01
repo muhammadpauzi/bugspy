@@ -5,8 +5,8 @@
 
 <button
     type={$$props.type}
-    class="btn btn-primary"
-    class:m-0={resetMargin}
+    class={`btn btn-${colorType} ${$$props.class || ""}`}
+    class:mb-0={resetMargin}
     on:click
 >
     <slot />

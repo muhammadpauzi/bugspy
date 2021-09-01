@@ -2,12 +2,10 @@
 	import Navbar from "./components/Navbar.svelte";
 	import Projects from "./components/Projects.svelte";
 	import CreateProject from "./components/CreateProject.svelte";
+	import CreateBug from "./components/CreateBug.svelte";
 	import Footer from "./components/Footer.svelte";
-	import pageStore, {
-		PROJECTS_PAGE,
-		BUGS_PAGE,
-		BUG_PROJECT_ID,
-	} from "./stores/pageStore";
+	import Bugs from "./components/Bugs.svelte";
+	import pageStore, { PROJECTS_PAGE, BUGS_PAGE } from "./stores/pageStore";
 </script>
 
 <Navbar />
@@ -15,7 +13,7 @@
 	<Projects />
 	<CreateProject />
 {:else if $pageStore == BUGS_PAGE}
-	<h1>{BUG_PROJECT_ID}</h1>
-	<button on:click={() => pageStore.set(PROJECTS_PAGE)}>Projects</button>
+	<Bugs />
+	<CreateBug />
 {/if}
 <Footer />

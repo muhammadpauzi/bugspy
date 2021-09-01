@@ -1,6 +1,7 @@
 <script>
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
+    import pageStore, { BUGS_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
 </script>
 
 <nav class="navbar">
@@ -9,12 +10,29 @@
     >
         <a href="/" class="logo">Bugspy</a>
 
-        <Button
-            on:click={() => {
-                modalCreateStore.set(true);
-            }}
-            resetMargin={true}>Create Project</Button
-        >
+        {#if $pageStore == PROJECTS_PAGE}
+            <Button
+                on:click={() => {
+                    modalCreateStore.set(true);
+                }}
+                resetMargin={true}>Create Project</Button
+            >
+        {:else if $pageStore == BUGS_PAGE}
+            <div class="d-flex align-items-center">
+                <Button
+                    class="me-1"
+                    resetMargin={true}
+                    on:click={() => ($pageStore = PROJECTS_PAGE)}
+                    >Projects</Button
+                >
+                <Button
+                    on:click={() => {
+                        modalCreateStore.set(true);
+                    }}
+                    resetMargin={true}>Create Bug</Button
+                >
+            </div>
+        {/if}
     </div>
 </nav>
 

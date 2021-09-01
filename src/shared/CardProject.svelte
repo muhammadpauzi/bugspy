@@ -30,7 +30,6 @@
 
 <div
     on:click={() => {
-        console.log("Change");
         changeBugProjectId(id);
         pageStore.set(BUGS_PAGE);
     }}

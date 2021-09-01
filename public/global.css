@@ -178,3 +178,62 @@ li{
 	color: var(--red-color) !important;
 	fill: var(--red-color) !important;
 }
+
+/* card */
+.card {
+	user-select: none;
+	background-color: var(--white-color);
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	padding: 2rem;
+	border: 1px solid var(--white-color-2);
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	color: var(--black-color);
+	transition-property: box-shadow, transform;
+	transition-duration: 0.3s;
+	transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card.no {
+	border-bottom-color: var(--white-color-2);
+}
+
+.card.low {
+	border-bottom-color: var(--primary-color);
+}
+
+.card.medium {
+	border-bottom-color: var(--orange-color);
+}
+
+.card.high {
+	border-bottom-color: var(--red-color);
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-title {
+	font-size: 1.2em;
+	font-weight: var(--font-medium);
+	margin-bottom: 0.2rem;
+}
+
+.card .card-text {
+	color: var(--gray-color-2);
+	font-weight: 400;
+	line-height: var(--line-height-2);
+	font-size: 0.8em;
+	margin-top: 0.6rem;
+}
+
+.issue {
+	display: block;
+	color: var(--gray-color-2);
+	font-weight: var(--font-regular);
+	margin-bottom: 1rem;
+}

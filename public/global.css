@@ -185,6 +185,7 @@ li{
 
 /* card */
 .card {
+	display: block;
 	user-select: none;
 	background-color: var(--white-color);
 	border-radius: var(--border-radius);

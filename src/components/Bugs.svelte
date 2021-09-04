@@ -30,33 +30,41 @@
         </div>
 
         <div class="row">
-            <small class="label-info">Active Bugs</small>
-            {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && !bug.solved) as bug (bug.id)}
-                <div
-                    in:scale
-                    out:scale|local
-                    animate:flip={{ duration: 500 }}
-                    class="col-lg-4 col-md-6 mb-3"
-                >
-                    <Bug {bug} />
-                </div>
-            {:else}
-                <p class="text-red text-center py-5">Bugs not created yet.</p>
-            {/each}
+            <div class="col-md-6">
+                <small class="label-info">Active Bugs</small>
+                {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && !bug.solved) as bug (bug.id)}
+                    <div
+                        in:scale
+                        out:scale|local
+                        animate:flip={{ duration: 500 }}
+                        class="mb-3"
+                    >
+                        <Bug {bug} />
+                    </div>
+                {:else}
+                    <p class="text-red text-center py-5">
+                        Bugs not created yet.
+                    </p>
+                {/each}
+            </div>
 
-            <small class="label-info">Solved Bugs</small>
-            {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && bug.solved) as bug (bug.id)}
-                <div
-                    in:scale
-                    out:scale|local
-                    animate:flip={{ duration: 500 }}
-                    class="col-lg-4 col-md-6 mb-3"
-                >
-                    <Bug {bug} />
-                </div>
-            {:else}
-                <p class="text-red text-center py-5">Bugs not created yet.</p>
-            {/each}
+            <div class="col-md-6">
+                <small class="label-info">Solved Bugs</small>
+                {#each $bugStore.filter((bug) => bug.projectId === BUG_PROJECT_ID && bug.solved) as bug (bug.id)}
+                    <div
+                        in:scale
+                        out:scale|local
+                        animate:flip={{ duration: 500 }}
+                        class="mb-3"
+                    >
+                        <Bug {bug} />
+                    </div>
+                {:else}
+                    <p class="text-red text-center py-5">
+                        Bugs not created yet.
+                    </p>
+                {/each}
+            </div>
         </div>
     </div>
 </div>

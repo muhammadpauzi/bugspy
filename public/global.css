@@ -148,6 +148,10 @@ li{
 	text-transform: uppercase;
 }
 
+.label-info{
+	color: var(--gray-color-2);
+}
+
 .badge-circle-danger{
     display: inline-block;
     text-align: center;

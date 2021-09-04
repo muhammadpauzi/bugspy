@@ -1,72 +1,22 @@
 import { writable } from "svelte/store";
+import { getCurrentData, saveData } from '../utils/data';
 
 const DBProject = '_projects';
 
-const sort = (data = [], sortBy = "2") => {
-    return data.sort((a, b) => {
-        switch (sortBy) {
-            case "1": // by asc date created
-                return a.dateCreated - b.dateCreated;
-            case "2": // by desc data created
-                return b.dateCreated - a.dateCreated;
-            case "3": // by asc title
-                if (a.title < b.title) {
-                    return -1;
-                }
-                if (a.title > b.title) {
-                    return 1;
-                }
-                return 0;
-            case "4": // by desc title
-                if (a.title > b.title) {
-                    return -1;
-                }
-                if (a.title < b.title) {
-                    return 1;
-                }
-                return 0;
-            default:
-                return 0;
-        }
-    });
-}
-
-
 const getCurrentProjects = (keyword = "") => {
-    try {
-        let projects = localStorage.getItem(DBProject);
-        // projects's key not exists on localStorage
-        if (projects == null) {
-            localStorage.setItem(DBProject, "[]");
-            return [];
-        }
-        projects = JSON.parse(projects);
-        // search
-        if (keyword) {
-            projects = projects.filter(project => project.title.includes(keyword));
-        }
-        return sort(projects);
-    } catch (err) {
-        localStorage.setItem(DBProject, "[]");
-        return [];
-    }
-}
-
-const saveProjects = (projects) => {
-    localStorage.setItem(DBProject, JSON.stringify(projects));
-    return sort(projects);
+    return getCurrentData(DBProject, keyword);
 }
 
 const createProject = (project) => {
     let projects = getCurrentProjects();
     projects.push(project);
-    return saveProjects(projects);
+    return saveData(DBProject, projects);
 }
 
 const deleteProject = (id) => {
     let projects = getCurrentProjects();
     projects = projects.filter(project => project.id !== id);
-    return saveProjects(projects);
+    return saveData(DBProject, projects);
 }
 
 const projectStore = writable(getCurrentProjects());

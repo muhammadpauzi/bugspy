@@ -39,20 +39,24 @@
 
 <Modal show={$modalCreateStore} title="Create Bug">
     <form method="POST" on:submit|preventDefault={handleSubmit}>
-        <Input
-            labelText="Bug Title"
-            inputModal={true}
-            required={true}
-            bind:value={title}
-        />
-        <Input
-            type="select"
-            labelText="Bug Priority"
-            placeholder="Select Priority"
-            inputModal={true}
-            {options}
-            bind:value={selectedOption}
-        />
+        <div class="mb-3">
+            <Input
+                labelText="Bug Title"
+                inputModal={true}
+                required={true}
+                bind:value={title}
+            />
+        </div>
+        <div class="mb-3">
+            <Input
+                type="select"
+                labelText="Bug Priority"
+                placeholder="Select Priority"
+                inputModal={true}
+                {options}
+                bind:value={selectedOption}
+            />
+        </div>
         <Button>Create</Button>
     </form>
 </Modal>

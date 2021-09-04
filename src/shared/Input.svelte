@@ -42,7 +42,6 @@
     .input {
         padding: 0.9rem 1rem;
         font-size: 0.95em;
-        margin-bottom: 1rem;
         display: inline-block;
         border: none;
         color: var(--gray-color-2);

@@ -241,3 +241,9 @@ li{
 	font-weight: var(--font-regular);
 	margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 567px){
+	.card{
+		padding: 1.5rem 1rem;
+	}
+}

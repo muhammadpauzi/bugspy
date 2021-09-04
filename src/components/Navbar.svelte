@@ -12,6 +12,7 @@
 
         {#if $pageStore == PROJECTS_PAGE}
             <Button
+                class="d-none d-lg-inline-block d-md-inline-block"
                 on:click={() => {
                     modalCreateStore.set(true);
                 }}
@@ -20,12 +21,13 @@
         {:else if $pageStore == BUGS_PAGE}
             <div class="d-flex align-items-center">
                 <Button
-                    class="me-1"
+                    class="me-1 d-none d-lg-inline-block d-md-inline-block"
                     resetMargin={true}
                     on:click={() => ($pageStore = PROJECTS_PAGE)}
                     >Projects</Button
                 >
                 <Button
+                    class="me-1 d-none d-lg-inline-block d-md-inline-block"
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}

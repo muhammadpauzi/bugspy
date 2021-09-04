@@ -16,6 +16,10 @@
     }
 
     @media screen and (max-width: 567px) {
+        .footer {
+            margin-bottom: 5rem;
+        }
+
         .footer p {
             font-size: 0.8em;
         }

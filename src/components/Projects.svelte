@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row g-1">
             {#each $projectStore as project (project.id)}
                 <div
                     in:scale

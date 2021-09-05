@@ -24,6 +24,7 @@
         modalCreateStore.set(false);
         // reset input's value
         title = "";
+        selectedOption = "";
     };
 </script>
 

@@ -6,7 +6,7 @@
 
     export let id;
     export let title = "";
-    export let solved = false;
+    export let description = "";
     export let priority = "no";
     export let dateCreated;
 
@@ -25,5 +25,6 @@
         $bugStore = changeSolveBug(id);
     }}
 >
+    <div class="card-text">{description}</div>
     <small>{humanizeDate(dateCreated)}</small>
 </Card>

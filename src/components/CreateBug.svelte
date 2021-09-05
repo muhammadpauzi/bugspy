@@ -9,6 +9,7 @@
     const options = ["No", "High", "Medium", "Low"];
     let title = "";
     let selectedOption = "";
+    let description = "";
 
     const handleSubmit = () => {
         const bug = {
@@ -17,6 +18,7 @@
             solved: false,
             projectId: BUG_PROJECT_ID,
             dateCreated: Date.now(),
+            description,
             priority: selectedOption,
         };
         // re-render bug's card
@@ -25,6 +27,8 @@
         modalCreateStore.set(false);
         // reset input's value
         title = "";
+        description = "";
+        selectedOption = "";
     };
 </script>
 
@@ -46,6 +50,14 @@
                 inputModal={true}
                 {options}
                 bind:value={selectedOption}
+            />
+        </div>
+        <div class="mb-3">
+            <Input
+                type="textarea"
+                labelText="Description"
+                inputModal={true}
+                bind:value={description}
             />
         </div>
         <Button>Create</Button>

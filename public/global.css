@@ -230,10 +230,11 @@ li{
 
 .card .card-text {
 	color: var(--gray-color-2);
-	font-weight: 400;
+	font-weight: var(--font-regular);
 	line-height: var(--line-height-2);
 	font-size: 0.8em;
 	margin-top: 0.6rem;
+	margin-bottom: 1rem;
 }
 
 .issue {

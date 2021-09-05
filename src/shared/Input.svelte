@@ -23,6 +23,19 @@
     />
 {/if}
 
+{#if type == "textarea"}
+    <textarea
+        class={`input ${$$props.class}`}
+        class:input-modal={inputModal}
+        placeholder={$$props.placeholder}
+        required={$$props.required}
+        cols="30"
+        rows="5"
+        on:input
+        bind:value
+    />
+{/if}
+
 {#if type == "select"}
     <select
         class={`input ${$$props.class}`}
@@ -52,6 +65,10 @@
         transition-duration: 0.3s;
         font-weight: var(--font-regular);
         border: 1px solid var(--gray-color);
+    }
+
+    textarea {
+        resize: vertical;
     }
 
     .input:focus {

@@ -1,7 +1,6 @@
 <script>
     import Card from "../shared/Card.svelte";
     import bugStore, { changeSolveBug, deleteBug } from "../stores/bugStore";
-    import { BUG_PROJECT_ID } from "../stores/pageStore";
     import { humanizeDate } from "../utils/date";
 
     export let id;

@@ -7,7 +7,6 @@
 
     const handleSearchProject = (e) => {
         $projectStore = getCurrentProjects(e.target.value);
-        console.log($projectStore);
     };
 </script>
 

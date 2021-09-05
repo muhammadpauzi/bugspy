@@ -38,7 +38,9 @@ const getCurrentData = (DBKey = "", keyword = "") => {
         data = JSON.parse(data);
         // search
         if (keyword) {
-            data = data.filter(bug => bug.title.includes(keyword));
+            data = data.filter(bug => {
+                return bug.title.toLowerCase().includes(keyword.toLowerCase());
+            });
         }
         return sort(data);
     } catch (err) {

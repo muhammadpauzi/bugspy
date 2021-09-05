@@ -11,7 +11,7 @@
 
     const handleDeleteBug = (id) => {
         if (confirm("Are you sure to delete the bug?")) {
-            $bugStore = deleteBug(id, BUG_PROJECT_ID);
+            $bugStore = deleteBug(id);
         }
     };
 </script>
@@ -21,7 +21,7 @@
     priorityCard={priority}
     onDelete={() => handleDeleteBug(id)}
     onDblClickCard={() => {
-        $bugStore = changeSolveBug(id, BUG_PROJECT_ID);
+        $bugStore = changeSolveBug(id);
     }}
 >
     {#if tags.length > 0}

@@ -1,6 +1,6 @@
 <script>
     import bugStore, { getCurrentBugs } from "../stores/bugStore";
-    import pageStore, { BUG_PROJECT_ID } from "../stores/pageStore";
+    import { BUG_PROJECT_ID } from "../stores/pageStore";
     import { scale } from "svelte/transition";
     import { flip } from "svelte/animate";
     import Bug from "./Bug.svelte";
@@ -10,7 +10,6 @@
         $bugStore = getCurrentBugs(e.target.value).filter(
             (bug) => bug.projectId === BUG_PROJECT_ID
         );
-        console.log($bugStore);
     };
 </script>
 

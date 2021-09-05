@@ -8,12 +8,12 @@ const getCurrentBugs = (keyword = "") => {
     return getCurrentData(DBBug, keyword);
 }
 
-const createBug = (bug, projectId) => {
+const createBug = (bug) => {
     let bugs = getCurrentBugs();
-    let projects = getCurrentData(DBProject)
+    let projects = getCurrentData(DBProject);
     bugs.push(bug);
     projects = projects.map(project => {
-        if (bug.projectId == projectId) {
+        if (bug.projectId == project.id) {
             project.issues += 1;
         }
         return project;
@@ -22,13 +22,13 @@ const createBug = (bug, projectId) => {
     return saveData(DBBug, bugs);
 }
 
-const deleteBug = (id, projectId) => {
+const deleteBug = (id) => {
     let bugs = getCurrentBugs();
     bugs = bugs.filter(bug => bug.id !== id);
     let projects = getCurrentData(DBProject)
     bugs = bugs.map(bug => {
         projects = projects.map(project => {
-            if (bug.projectId == projectId) {
+            if (bug.projectId == project.id) {
                 project.issues -= 1;
             }
             return project;
@@ -39,14 +39,14 @@ const deleteBug = (id, projectId) => {
     return saveData(DBBug, bugs);
 }
 
-const changeSolveBug = (id, projectId) => {
+const changeSolveBug = (id) => {
     let bugs = getCurrentBugs();
     bugs = bugs.map(bug => {
         if (bug.id === id) {
             bug.solved = !bug.solved;
             let projects = getCurrentData(DBProject)
             projects = projects.map(project => {
-                if (bug.projectId == projectId) {
+                if (bug.projectId == project.id) {
                     if (bug.solved) {
                         project.completedIssues += 1;
                     } else {

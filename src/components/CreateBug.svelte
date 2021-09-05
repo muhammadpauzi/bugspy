@@ -21,7 +21,7 @@
             priority: selectedOption,
         };
         // re-render bug's card
-        $bugStore = createBug(bug, BUG_PROJECT_ID);
+        $bugStore = createBug(bug);
         // hide the modal
         modalCreateStore.set(false);
         // reset input's value

@@ -37,6 +37,7 @@
     onDelete={() => handleDeleteProject(id)}
     onClickCard={() => {
         changeBugProjectId(id);
+        console.log(BUG_PROJECT_ID);
         $pageStore = BUGS_PAGE;
     }}
 >

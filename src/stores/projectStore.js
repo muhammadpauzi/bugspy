@@ -26,5 +26,6 @@ export default projectStore;
 export {
     getCurrentProjects,
     createProject,
-    deleteProject
+    deleteProject,
+    DBProject
 }

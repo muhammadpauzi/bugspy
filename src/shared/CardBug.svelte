@@ -1,6 +1,7 @@
 <script>
     import Icon from "../shared/Icon.svelte";
     import bugStore, { changeSolveBug, deleteBug } from "../stores/bugStore";
+    import { BUG_PROJECT_ID } from "../stores/pageStore";
 
     export let id;
     export let title = "";
@@ -17,7 +18,7 @@
 
 <div
     on:dblclick={() => {
-        $bugStore = changeSolveBug(id);
+        $bugStore = changeSolveBug(id, BUG_PROJECT_ID);
     }}
 >
     <div class={`card ${priority || ""}`}>
@@ -26,7 +27,7 @@
                 {title}
                 {solved ? "solved" : ""}
             </h3>
-            <div class="text-red px-2" on:click={() => handleDeleteBug(id)}>
+            <div class="text-red px-2" on:click={() => handleDeleteBug(id, BUG_PROJECT_ID)}>
                 <Icon name="trash" />
             </div>
         </div>

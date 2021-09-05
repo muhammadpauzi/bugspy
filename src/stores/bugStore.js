@@ -22,7 +22,7 @@ const createBug = (bug, projectId) => {
     return saveData(DBBug, bugs);
 }
 
-const deleteBug = (id) => {
+const deleteBug = (id, projectId) => {
     let bugs = getCurrentBugs();
     bugs = bugs.filter(bug => bug.id !== id);
     let projects = getCurrentData(DBProject)

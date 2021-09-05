@@ -39,7 +39,7 @@
                         animate:flip={{ duration: 500 }}
                         class="mb-3"
                     >
-                        <Bug {bug} />
+                        <Bug {...bug} />
                     </div>
                 {:else}
                     <p class="text-red text-center py-5">
@@ -57,7 +57,7 @@
                         animate:flip={{ duration: 500 }}
                         class="mb-3"
                     >
-                        <Bug {bug} />
+                        <Bug {...bug} />
                     </div>
                 {:else}
                     <p class="text-red text-center py-5">

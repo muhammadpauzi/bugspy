@@ -34,7 +34,7 @@
                     animate:flip={{ duration: 500 }}
                     class="col-lg-4 col-md-6 mb-3"
                 >
-                    <Project {project} />
+                    <Project {...project} />
                 </div>
             {:else}
                 <p class="text-red text-center py-5">

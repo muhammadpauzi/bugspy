@@ -8,13 +8,14 @@
         BUG_PROJECT_ID,
         BUGS_PAGE,
     } from "../stores/pageStore";
+    import { humanizeDate } from "../utils/date";
 
     export let id = 0;
     export let title = "";
     export let issues = 0;
-    export let tags = [];
     export let completedIssues = 0;
     export let priority = "no";
+    export let dateCreated;
 
     let percentage = Math.floor((100 / issues) * completedIssues) || 0;
     let tweenedCompletedIssues = tweened(0, {
@@ -53,11 +54,5 @@
             />
         </div>
     </div>
-    {#if tags.length > 0}
-        <div class="tags">
-            {#each tags as tag}
-                <span class="tag">{tag}</span>
-            {/each}
-        </div>
-    {/if}
+    <small>{humanizeDate(dateCreated)}</small>
 </Card>

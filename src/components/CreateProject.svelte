@@ -15,7 +15,6 @@
             title,
             issues: 0,
             completedIssues: 0,
-            tags: ["Javascript", "Web"],
             dateCreated: Date.now(),
             priority: selectedOption,
         };
@@ -26,14 +25,6 @@
         // reset input's value
         title = "";
     };
-
-    // const handleChangePrioritySelect = (e) => {
-    //     options.map((option) => {
-    //         if (option.toLowerCase() === selectedOption.toLowerCase()) {
-    //             alert("You cannot edit the priority!!!");
-    //         }
-    //     });
-    // };
 </script>
 
 <Modal show={$modalCreateStore} title="Create Project">

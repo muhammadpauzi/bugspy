@@ -4,6 +4,7 @@
         changeSolveIssue,
         deleteIssue,
     } from "../stores/issueStore";
+    import projectStore, { getCurrentProjects } from "../stores/projectStore";
     import { humanizeDate } from "../utils/date";
 
     export let id;
@@ -15,6 +16,8 @@
     const handleDeleteIssue = (id) => {
         if (confirm("Are you sure to delete the issue?")) {
             $issueStore = deleteIssue(id);
+            // regenerate data projects in project page
+            $projectStore = getCurrentProjects();
         }
     };
 </script>
@@ -25,6 +28,8 @@
     onDelete={() => handleDeleteIssue(id)}
     onDblClickCard={() => {
         $issueStore = changeSolveIssue(id);
+        // regenerate data projects in project page
+        $projectStore = getCurrentProjects();
     }}
 >
     <div class="card-text">{description}</div>

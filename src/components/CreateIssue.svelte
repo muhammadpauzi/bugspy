@@ -5,6 +5,7 @@
     import { modalCreateStore } from "../stores/modalStore";
     import { ISSUE_PROJECT_ID } from "../stores/pageStore";
     import issueStore, { createIssue } from "../stores/issueStore";
+    import projectStore, { getCurrentProjects } from "../stores/projectStore";
 
     const options = ["No", "High", "Medium", "Low"];
     let title = "";
@@ -29,6 +30,8 @@
         };
         // re-render issue's card
         $issueStore = createIssue(issue);
+        // regenerate data projects in project page
+        $projectStore = getCurrentProjects();
         // hide the modal
         modalCreateStore.set(false);
         // reset input's value

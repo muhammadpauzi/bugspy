@@ -10,8 +10,14 @@
     let title = "";
     let selectedOption = "";
     let description = "";
+    let titleErrorMessage = "";
 
     const handleSubmit = () => {
+        if (!title.trim()) {
+            titleErrorMessage = "Title must be required.";
+            return;
+        }
+
         const issue = {
             id: Math.floor(Math.random() * 1000) + Date.now(),
             title,
@@ -41,6 +47,7 @@
                 required={true}
                 bind:value={title}
             />
+            <small class="text-red mt-2 d-block">{titleErrorMessage}</small>
         </div>
         <div class="mb-3">
             <Input

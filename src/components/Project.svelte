@@ -4,7 +4,7 @@
     import { expoInOut } from "svelte/easing";
     import projectStore, { deleteProject } from "../stores/projectStore";
     import pageStore, {
-        changeBugProjectId,
+        changeIssueProjectId,
         ISSUE_PROJECT_ID,
         ISSUES_PAGE,
     } from "../stores/pageStore";
@@ -37,7 +37,7 @@
     priorityCard={priority}
     onDelete={() => handleDeleteProject(id)}
     onClickCard={() => {
-        changeBugProjectId(id);
+        changeIssueProjectId(id);
         console.log(ISSUE_PROJECT_ID);
         $pageStore = ISSUES_PAGE;
     }}

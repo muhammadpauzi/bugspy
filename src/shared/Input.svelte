@@ -8,7 +8,10 @@
 </script>
 
 {#if withLabel}
-    <label for="" class="input-label">{labelText}</label>
+    <label for="" class="input-label"
+        >{labelText}
+        {@html $$props.required ? '<span class="text-red">*</span>' : ""}</label
+    >
 {/if}
 
 {#if type == "text"}
@@ -17,7 +20,6 @@
         class={`input ${$$props.class}`}
         class:input-modal={inputModal}
         placeholder={$$props.placeholder}
-        required={$$props.required}
         on:input
         bind:value
     />
@@ -28,7 +30,6 @@
         class={`input ${$$props.class}`}
         class:input-modal={inputModal}
         placeholder={$$props.placeholder}
-        required={$$props.required}
         cols="30"
         rows="5"
         on:input
@@ -40,7 +41,6 @@
     <select
         class={`input ${$$props.class}`}
         class:input-modal={inputModal}
-        required={$$props.required}
         on:change
         bind:value
     >

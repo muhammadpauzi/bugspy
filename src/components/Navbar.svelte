@@ -1,7 +1,7 @@
 <script>
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
-    import pageStore, { BUGS_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
+    import pageStore, { ISSUES_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
 </script>
 
 <nav class="navbar">
@@ -18,7 +18,7 @@
                 }}
                 resetMargin={true}>Create Project</Button
             >
-        {:else if $pageStore == BUGS_PAGE}
+        {:else if $pageStore == ISSUES_PAGE}
             <div class="d-flex align-items-center">
                 <Button
                     class="me-1 d-none d-lg-inline-block d-md-inline-block"

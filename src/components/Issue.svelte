@@ -1,6 +1,9 @@
 <script>
     import Card from "../shared/Card.svelte";
-    import bugStore, { changeSolveBug, deleteBug } from "../stores/bugStore";
+    import issueStore, {
+        changeSolveIssue,
+        deleteIssue,
+    } from "../stores/issueStore";
     import { humanizeDate } from "../utils/date";
 
     export let id;
@@ -9,9 +12,9 @@
     export let priority = "no";
     export let dateCreated;
 
-    const handleDeleteBug = (id) => {
-        if (confirm("Are you sure to delete the bug?")) {
-            $bugStore = deleteBug(id);
+    const handleDeleteIssue = (id) => {
+        if (confirm("Are you sure to delete the issue?")) {
+            $issueStore = deleteIssue(id);
         }
     };
 </script>
@@ -19,11 +22,11 @@
 <Card
     titleCard={title}
     priorityCard={priority}
-    onDelete={() => handleDeleteBug(id)}
+    onDelete={() => handleDeleteIssue(id)}
     onDblClickCard={() => {
-        $bugStore = changeSolveBug(id);
+        $issueStore = changeSolveIssue(id);
     }}
 >
     <div class="card-text">{description}</div>
-    <small>{humanizeDate(dateCreated)}</small>
+    <small class="card-text">{humanizeDate(dateCreated)}</small>
 </Card>

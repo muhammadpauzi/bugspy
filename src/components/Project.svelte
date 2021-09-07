@@ -5,8 +5,8 @@
     import projectStore, { deleteProject } from "../stores/projectStore";
     import pageStore, {
         changeBugProjectId,
-        BUG_PROJECT_ID,
-        BUGS_PAGE,
+        ISSUE_PROJECT_ID,
+        ISSUES_PAGE,
     } from "../stores/pageStore";
     import { humanizeDate } from "../utils/date";
 
@@ -38,8 +38,8 @@
     onDelete={() => handleDeleteProject(id)}
     onClickCard={() => {
         changeBugProjectId(id);
-        console.log(BUG_PROJECT_ID);
-        $pageStore = BUGS_PAGE;
+        console.log(ISSUE_PROJECT_ID);
+        $pageStore = ISSUES_PAGE;
     }}
 >
     <small class="issue">{issues} Issues</small>
@@ -54,5 +54,5 @@
             />
         </div>
     </div>
-    <small>{humanizeDate(dateCreated)}</small>
+    <small class="card-text">{humanizeDate(dateCreated)}</small>
 </Card>

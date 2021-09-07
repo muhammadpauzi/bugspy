@@ -1,7 +1,7 @@
 <script>
     import { modalCreateStore } from "../stores/modalStore";
     import Button from "../shared/Button.svelte";
-    import pageStore, { PROJECTS_PAGE, BUGS_PAGE } from "../stores/pageStore";
+    import pageStore, { PROJECTS_PAGE, ISSUES_PAGE } from "../stores/pageStore";
 </script>
 
 <div class="mobile-menu">
@@ -13,7 +13,7 @@
             }}
             resetMargin={true}>Create Project</Button
         >
-    {:else if $pageStore == BUGS_PAGE}
+    {:else if $pageStore == ISSUES_PAGE}
         <div class="d-flex align-items-center">
             <Button
                 class="me-1"

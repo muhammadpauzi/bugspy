@@ -3,8 +3,8 @@
     import Input from "../shared/Input.svelte";
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
-    import { BUG_PROJECT_ID } from "../stores/pageStore";
-    import bugStore, { createBug } from "../stores/bugStore";
+    import { ISSUE_PROJECT_ID } from "../stores/pageStore";
+    import issueStore, { createIssue } from "../stores/issueStore";
 
     const options = ["No", "High", "Medium", "Low"];
     let title = "";
@@ -12,17 +12,17 @@
     let description = "";
 
     const handleSubmit = () => {
-        const bug = {
+        const issue = {
             id: Math.floor(Math.random() * 1000) + Date.now(),
             title,
             solved: false,
-            projectId: BUG_PROJECT_ID,
+            projectId: ISSUE_PROJECT_ID,
             dateCreated: Date.now(),
             description,
             priority: selectedOption,
         };
-        // re-render bug's card
-        $bugStore = createBug(bug);
+        // re-render issue's card
+        $issueStore = createIssue(issue);
         // hide the modal
         modalCreateStore.set(false);
         // reset input's value
@@ -32,11 +32,11 @@
     };
 </script>
 
-<Modal show={$modalCreateStore} title="Create Bug">
+<Modal show={$modalCreateStore} title="Create Issue">
     <form method="POST" on:submit|preventDefault={handleSubmit}>
         <div class="mb-3">
             <Input
-                labelText="Bug Title"
+                labelText="Issue Title"
                 inputModal={true}
                 required={true}
                 bind:value={title}
@@ -45,7 +45,7 @@
         <div class="mb-3">
             <Input
                 type="select"
-                labelText="Bug Priority"
+                labelText="Issue Priority"
                 placeholder="Select Priority"
                 inputModal={true}
                 {options}
@@ -60,6 +60,6 @@
                 bind:value={description}
             />
         </div>
-        <Button>Create</Button>
+        <Button>Create Issue</Button>
     </form>
 </Modal>

@@ -48,6 +48,6 @@
                 bind:value={selectedOption}
             />
         </div>
-        <Button>Create</Button>
+        <Button>Create Project</Button>
     </form>
 </Modal>

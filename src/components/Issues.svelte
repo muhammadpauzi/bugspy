@@ -23,7 +23,7 @@
                 <Input
                     withLabel={false}
                     placeholder="Enter keyword..."
-                    on:input={handleSearchIssues}
+                    on:keyup={handleSearchIssues}
                 />
             </div>
         </div>

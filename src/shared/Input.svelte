@@ -20,7 +20,7 @@
         class={`input ${$$props.class}`}
         class:input-modal={inputModal}
         placeholder={$$props.placeholder}
-        on:input
+        on:keyup
         bind:value
     />
 {/if}

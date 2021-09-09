@@ -92,6 +92,7 @@ li{
 .tags{
 	gap: .2rem;
 	display: flex;
+	margin-bottom: 1rem;
 }
 
 .tag{

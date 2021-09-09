@@ -7,9 +7,11 @@
     import issueStore, { createIssue } from "../stores/issueStore";
     import projectStore, { getCurrentProjects } from "../stores/projectStore";
 
-    const options = ["No", "High", "Medium", "Low"];
+    const optionsPriority = ["No", "High", "Medium", "Low"];
+    const optionsCategory = ["No", "Feature", "Bug", "Refactoring"];
     let title = "";
-    let selectedOption = "";
+    let selectedOptionPriority = "";
+    let selectedOptionCategory = "";
     let description = "";
     let titleErrorMessage = "";
 
@@ -26,7 +28,8 @@
             projectId: ISSUE_PROJECT_ID,
             dateCreated: Date.now(),
             description,
-            priority: selectedOption,
+            category: selectedOptionCategory,
+            priority: selectedOptionPriority,
         };
         // re-render issue's card
         $issueStore = createIssue(issue);
@@ -37,7 +40,8 @@
         // reset input's value
         title = "";
         description = "";
-        selectedOption = "";
+        selectedOptionCategory = "";
+        selectedOptionPriority = "no";
     };
 </script>
 
@@ -58,8 +62,8 @@
                 labelText="Issue Priority"
                 placeholder="Select Priority"
                 inputModal={true}
-                {options}
-                bind:value={selectedOption}
+                options={optionsPriority}
+                bind:value={selectedOptionPriority}
             />
         </div>
         <div class="mb-3">
@@ -68,6 +72,16 @@
                 labelText="Description"
                 inputModal={true}
                 bind:value={description}
+            />
+        </div>
+        <div class="mb-3">
+            <Input
+                type="select"
+                labelText="Category"
+                placeholder="Select Category"
+                inputModal={true}
+                options={optionsCategory}
+                bind:value={selectedOptionCategory}
             />
         </div>
         <Button>Create Issue</Button>

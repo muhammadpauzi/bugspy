@@ -40,7 +40,7 @@
         $pageStore = ISSUES_PAGE;
     }}
 >
-    <small class="issue">{issues} Issues</small>
+    <small class="issue">{issues} {issues == 1 ? "Issue" : "Issues"}</small>
     <div>
         <span class="progress-bar-value"
             >{$tweenedCompletedIssues.toFixed(0)}%

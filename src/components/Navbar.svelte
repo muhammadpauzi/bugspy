@@ -12,22 +12,24 @@
 
         {#if $pageStore == PROJECTS_PAGE}
             <Button
-                class="d-none d-lg-inline-block d-md-inline-block"
+                class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block"
                 on:click={() => {
                     modalCreateStore.set(true);
                 }}
                 resetMargin={true}>Create Project</Button
             >
         {:else if $pageStore == ISSUES_PAGE}
-            <div class="d-flex align-items-center">
+            <div
+                class="d-none align-items-center d-lg-flex d-md-flex d-sm-flex"
+            >
                 <Button
-                    class="me-1 d-none d-lg-inline-block d-md-inline-block"
+                    class="me-1"
                     resetMargin={true}
                     on:click={() => ($pageStore = PROJECTS_PAGE)}
                     >Projects</Button
                 >
                 <Button
-                    class="me-1 d-none d-lg-inline-block d-md-inline-block"
+                    class="me-1"
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}

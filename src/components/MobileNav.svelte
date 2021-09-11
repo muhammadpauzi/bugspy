@@ -4,10 +4,9 @@
     import pageStore, { PROJECTS_PAGE, ISSUES_PAGE } from "../stores/pageStore";
 </script>
 
-<div class="mobile-menu">
+<div class="mobile-menu d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
         <Button
-            class=""
             on:click={() => {
                 modalCreateStore.set(true);
             }}
@@ -32,24 +31,17 @@
 
 <style>
     .mobile-menu {
-        display: none;
-    }
-
-    @media screen and (max-width: 567px) {
-        .mobile-menu {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.4rem;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-top: 1px solid var(--gray-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-        }
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.4rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid var(--gray-color);
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
     }
 </style>

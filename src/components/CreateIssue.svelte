@@ -45,7 +45,8 @@
         title = "";
         description = "";
         selectedOptionCategory = "";
-        selectedOptionPriority = "no";
+        titleErrorMessage = "";
+        selectedOptionPriority = "";
     };
 </script>
 

@@ -30,6 +30,7 @@
         modalCreateStore.set(false);
         // reset input's value
         title = "";
+        titleErrorMessage = "";
         selectedOption = "";
     };
 </script>

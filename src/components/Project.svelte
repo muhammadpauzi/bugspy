@@ -42,9 +42,14 @@
 >
     <small class="issue">{issues} {issues == 1 ? "Issue" : "Issues"}</small>
     <div>
-        <span class="progress-bar-value"
-            >{$tweenedCompletedIssues.toFixed(0)}%
-        </span>
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="progress-bar-value"
+                >{$tweenedCompletedIssues.toFixed(0)}%
+            </span>
+            <span class="progress-bar-value">
+                {$tweenedCompletedIssues.toFixed(0) == 100 ? "Completed" : ""}
+            </span>
+        </div>
         <div class="progress-bar">
             <div
                 class="progress-bar-fill"

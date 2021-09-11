@@ -28,9 +28,13 @@
             projectId: ISSUE_PROJECT_ID,
             dateCreated: Date.now(),
             description,
-            category: selectedOptionCategory,
             priority: selectedOptionPriority,
         };
+
+        if (selectedOptionCategory != "no") {
+            issue.category = selectedOptionCategory;
+        }
+
         // re-render issue's card
         $issueStore = createIssue(issue);
         // regenerate data projects in project page

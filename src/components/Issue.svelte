@@ -10,7 +10,7 @@
     export let id;
     export let title = "";
     export let description = "";
-    export let category = "no";
+    export let category;
     export let priority = "no";
     export let dateCreated;
 
@@ -34,8 +34,10 @@
     }}
 >
     <div class="card-text">{description}</div>
-    <div class="tags">
-        <div class="tag">{category}</div>
-    </div>
+    {#if category}
+        <div class="tags">
+            <div class="tag">{category}</div>
+        </div>
+    {/if}
     <small class="card-text">{humanizeDate(dateCreated)}</small>
 </Card>

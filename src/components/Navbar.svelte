@@ -33,7 +33,7 @@
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}
-                    resetMargin={true}>Create Bug</Button
+                    resetMargin={true}>Create Issue</Button
                 >
             </div>
         {/if}

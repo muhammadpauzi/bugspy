@@ -46,7 +46,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 py-4">
                 <small class="label-info"
                     >Active Issues ({activeIssues.length})</small
                 >
@@ -66,7 +66,7 @@
                 {/each}
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 py-4">
                 <small class="label-info"
                     >Solved Issues ({solvedIssues.length})</small
                 >

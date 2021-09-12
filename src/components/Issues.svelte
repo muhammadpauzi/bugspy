@@ -60,7 +60,7 @@
                     </div>
                 {:else}
                     <p class="text-red text-center py-5">
-                        Issues not created yet.
+                        No solved issues yet.
                     </p>
                 {/each}
             </div>

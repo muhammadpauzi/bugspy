@@ -17,7 +17,7 @@
     const handleDeleteIssue = (id) => {
         if (confirm("Are you sure to delete the issue?")) {
             $issueStore = deleteIssue(id);
-            // regenerate data projects in project page
+            // re-render data projects in project page
             $projectStore = getCurrentProjects();
         }
     };
@@ -29,7 +29,7 @@
     onDelete={() => handleDeleteIssue(id)}
     onDblClickCard={() => {
         $issueStore = changeSolveIssue(id);
-        // regenerate data projects in project page
+        // re-render data projects in project page
         $projectStore = getCurrentProjects();
     }}
 >

@@ -27,7 +27,8 @@
             margin-bottom: 3.5rem;
         }
 
-        .footer p {
+        .footer p,
+        .footer a {
             font-size: 0.8em;
         }
     }

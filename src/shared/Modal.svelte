@@ -28,6 +28,7 @@
 
 <style>
     .modal-backdrop {
+        display: block;
         position: fixed;
         top: 0;
         visibility: hidden;
@@ -35,7 +36,7 @@
         z-index: 99999;
         width: 100%;
         height: 100vh;
-        padding: 1rem;
+        padding: 1rem 0.5rem 4rem 0.5rem;
         opacity: 0;
         overflow-y: auto;
         background-color: var(--backdrop-color);

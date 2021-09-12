@@ -1,6 +1,13 @@
 <footer class="footer">
     <div class="container py-4">
-        <p>Created with <span class="text-red">❤</span> by Muhammad Pauzi.</p>
+        <div class="d-flex justify-content-between">
+            <p>
+                Created with <span class="text-red">❤</span> by Muhammad Pauzi.
+            </p>
+            <a href="https://github.com/muhammadpauzi/bugspy" target="_blank"
+                >Github</a
+            >
+        </div>
     </div>
 </footer>
 

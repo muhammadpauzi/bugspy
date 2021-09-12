@@ -37,6 +37,7 @@
         height: 100vh;
         padding: 1rem;
         opacity: 0;
+        overflow-y: auto;
         background-color: var(--backdrop-color);
         transition-property: opacity, visibility;
         transition-duration: 0.3s;

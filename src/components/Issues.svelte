@@ -9,15 +9,19 @@
     let activeIssues = [];
     let solvedIssues = [];
 
-    $issueStore.forEach((issue) => {
-        if (issue.projectId === ISSUE_PROJECT_ID) {
-            if (issue.solved) {
-                activeIssues.push(issue);
-            } else {
-                solvedIssues.push(issue);
+    $: {
+        activeIssues = [];
+        solvedIssues = [];
+        $issueStore.forEach((issue) => {
+            if (issue.projectId === ISSUE_PROJECT_ID) {
+                if (issue.solved) {
+                    activeIssues = [...activeIssues, issue];
+                } else {
+                    solvedIssues = [...solvedIssues, issue];
+                }
             }
-        }
-    });
+        });
+    }
 
     const handleSearchIssues = (e) => {
         $issueStore = getCurrentIssues(e.target.value).filter(

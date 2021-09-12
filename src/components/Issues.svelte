@@ -15,9 +15,9 @@
         $issueStore.forEach((issue) => {
             if (issue.projectId === ISSUE_PROJECT_ID) {
                 if (issue.solved) {
-                    activeIssues = [...activeIssues, issue];
-                } else {
                     solvedIssues = [...solvedIssues, issue];
+                } else {
+                    activeIssues = [...activeIssues, issue];
                 }
             }
         });

@@ -6,6 +6,19 @@
     import Issue from "./Issue.svelte";
     import Input from "../shared/Input.svelte";
 
+    let activeIssues = [];
+    let solvedIssues = [];
+
+    $issueStore.forEach((issue) => {
+        if (issue.projectId === ISSUE_PROJECT_ID) {
+            if (issue.solved) {
+                activeIssues.push(issue);
+            } else {
+                solvedIssues.push(issue);
+            }
+        }
+    });
+
     const handleSearchIssues = (e) => {
         $issueStore = getCurrentIssues(e.target.value).filter(
             (issue) => issue.projectId === ISSUE_PROJECT_ID
@@ -31,7 +44,7 @@
         <div class="row">
             <div class="col-md-6">
                 <small class="label-info">Active Issues</small>
-                {#each $issueStore.filter((issue) => issue.projectId === ISSUE_PROJECT_ID && !issue.solved) as issue (issue.id)}
+                {#each activeIssues as issue (issue.id)}
                     <div
                         in:scale
                         out:scale|local
@@ -49,7 +62,7 @@
 
             <div class="col-md-6">
                 <small class="label-info">Solved Issues</small>
-                {#each $issueStore.filter((issue) => issue.projectId === ISSUE_PROJECT_ID && issue.solved) as issue (issue.id)}
+                {#each solvedIssues as issue (issue.id)}
                     <div
                         in:scale
                         out:scale|local

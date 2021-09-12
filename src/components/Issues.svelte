@@ -43,7 +43,9 @@
 
         <div class="row">
             <div class="col-md-6">
-                <small class="label-info">Active Issues</small>
+                <small class="label-info"
+                    >Active Issues ({activeIssues.length})</small
+                >
                 {#each activeIssues as issue (issue.id)}
                     <div
                         in:scale
@@ -61,7 +63,9 @@
             </div>
 
             <div class="col-md-6">
-                <small class="label-info">Solved Issues</small>
+                <small class="label-info"
+                    >Solved Issues ({solvedIssues.length})</small
+                >
                 {#each solvedIssues as issue (issue.id)}
                     <div
                         in:scale

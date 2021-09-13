@@ -1,5 +1,5 @@
 <script>
-    import { modalCreateStore } from "../stores/modalStore";
+    import { modalCreateStore, modalEditStore } from "../stores/modalStore";
 
     export let show = false;
     export let title = "";
@@ -8,14 +8,20 @@
 <div
     class="modal-backdrop"
     class:show
-    on:click|self={() => modalCreateStore.set(false)}
+    on:click|self={() => {
+        modalCreateStore.set(false);
+        modalEditStore.set(false);
+    }}
 >
     <div class="modal">
         <div class="modal-header">
             <h3 class="modal-header-title">{title}</h3>
             <div
                 class="modal-close"
-                on:click={() => modalCreateStore.set(false)}
+                on:click={() => {
+                    modalCreateStore.set(false);
+                    modalEditStore.set(false);
+                }}
             >
                 &times
             </div>

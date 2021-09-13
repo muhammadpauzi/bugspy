@@ -7,6 +7,7 @@
         changeIssueProjectId,
         ISSUES_PAGE,
     } from "../stores/pageStore";
+    import { modalEditStore } from "../stores/modalStore";
     import { humanizeDate } from "../utils/date";
     import issueStore, {
         deleteIssue,
@@ -45,6 +46,10 @@
     titleCard={title}
     priorityCard={priority}
     onDelete={() => handleDeleteProject(id)}
+    onShowModalEdit={() => {
+        changeIssueProjectId(id);
+        modalEditStore.set(true);
+    }}
     onClickCard={() => {
         changeIssueProjectId(id);
         $pageStore = ISSUES_PAGE;

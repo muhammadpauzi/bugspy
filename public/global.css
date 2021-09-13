@@ -175,6 +175,12 @@ li{
 	text-align: center;
 }
 
+.text-green{
+	font-weight: var(--font-medium);
+	color: var(--green-color) !important;
+	fill: var(--green-color) !important;
+}
+
 .text-red{
 	font-weight: var(--font-medium);
 	color: var(--red-color) !important;

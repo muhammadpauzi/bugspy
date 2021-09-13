@@ -2,13 +2,25 @@
     import Modal from "../shared/Modal.svelte";
     import Input from "../shared/Input.svelte";
     import Button from "../shared/Button.svelte";
-    import { modalCreateStore } from "../stores/modalStore";
-    import projectStore, { createProject } from "../stores/projectStore";
+    import { modalEditStore } from "../stores/modalStore";
+    import projectStore, { editProject } from "../stores/projectStore";
+    import { ISSUE_PROJECT_ID } from "../stores/pageStore";
 
     const options = ["No", "High", "Medium", "Low"];
     let title = "";
     let selectedOption = "";
     let titleErrorMessage = "";
+    let data;
+    // re-render this component for load data project of ISSUES_PROJECT_ID
+    $: if ($modalEditStore == true) {
+        data = $projectStore.find((project) => project.id == ISSUE_PROJECT_ID);
+        loadDataProject(data);
+    }
+
+    const loadDataProject = (data) => {
+        title = data.title || "";
+        selectedOption = data.priority || "";
+    };
 
     const handleSubmit = () => {
         if (!title.trim()) {
@@ -16,18 +28,15 @@
             return;
         }
 
-        const project = {
-            id: Math.floor(Math.random() * 1000) + Date.now(),
-            title,
-            issues: 0,
-            completedIssues: 0,
-            dateCreated: Date.now(),
-            priority: selectedOption || "no",
+        const updatedProject = {
+            id: data.id,
+            title: title,
+            priority: selectedOption,
         };
         // re-render project's card
-        $projectStore = createProject(project);
+        $projectStore = editProject(updatedProject);
         // hide the modal
-        modalCreateStore.set(false);
+        modalEditStore.set(false);
         // reset input's value
         title = "";
         titleErrorMessage = "";
@@ -35,7 +44,7 @@
     };
 </script>
 
-<Modal show={$modalCreateStore} title="Create Project">
+<Modal show={$modalEditStore} title="Edit Project">
     <form method="POST" on:submit|preventDefault={handleSubmit}>
         <div class="mb-3">
             <Input
@@ -56,6 +65,6 @@
                 bind:value={selectedOption}
             />
         </div>
-        <Button>Create Project</Button>
+        <Button>Edit Project</Button>
     </form>
 </Modal>

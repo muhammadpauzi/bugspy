@@ -6,6 +6,7 @@
     export let onClickCard = () => {};
     export let onDblClickCard = () => {};
     export let onDelete = () => {};
+    export let onShowModalEdit = () => {};
 </script>
 
 <div on:click={onClickCard} on:dblclick={onDblClickCard}>
@@ -14,10 +15,31 @@
             <h3 class="card-title mb-2">
                 {titleCard}
             </h3>
-            <div class="text-red px-2" on:click|stopPropagation={onDelete}>
-                <Icon name="trash" />
+            <div class="d-flex">
+                <div
+                    class="text-green px-2 hover-scale"
+                    on:click|stopPropagation={onShowModalEdit}
+                >
+                    <Icon name="edit" />
+                </div>
+                <div
+                    class="text-red px-2 hover-scale"
+                    on:click|stopPropagation={onDelete}
+                >
+                    <Icon name="trash" />
+                </div>
             </div>
         </div>
         <slot />
     </div>
 </div>
+
+<style>
+    .hover-scale {
+        transition: transform 0.3s;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.1);
+    }
+</style>

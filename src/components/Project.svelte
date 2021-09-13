@@ -8,6 +8,10 @@
         ISSUES_PAGE,
     } from "../stores/pageStore";
     import { humanizeDate } from "../utils/date";
+    import issueStore, {
+        deleteIssue,
+        getCurrentIssues,
+    } from "../stores/issueStore";
 
     export let id = 0;
     export let title = "";
@@ -26,6 +30,12 @@
 
     const handleDeleteProject = (id) => {
         if (confirm("Are you sure to delete the project?")) {
+            const issues = getCurrentIssues();
+            issues.map((issue) => {
+                if (issue.projectId == id) {
+                    deleteIssue(issue.id);
+                }
+            });
             $projectStore = deleteProject(id);
         }
     };

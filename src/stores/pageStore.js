@@ -20,4 +20,4 @@ const changeIssueIdEdit = (id) => {
 const pageStore = writable(PROJECTS_PAGE);
 
 export default pageStore;
-export { PROJECTS_PAGE, ISSUES_PAGE, changeIssueProjectId, ISSUE_PROJECT_ID, ISSUE_ID_EDIT, changeIssueIdEdit, changeProjectIdEdit };
+export { PROJECTS_PAGE, ISSUES_PAGE, changeIssueProjectId, ISSUE_PROJECT_ID, ISSUE_ID_EDIT, changeIssueIdEdit, changeProjectIdEdit, PROJECT_ID_EDIT };

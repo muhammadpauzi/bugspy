@@ -4,7 +4,7 @@
     import Button from "../shared/Button.svelte";
     import { modalEditStore } from "../stores/modalStore";
     import projectStore, { editProject } from "../stores/projectStore";
-    import { ISSUE_PROJECT_ID } from "../stores/pageStore";
+    import { PROJECT_ID_EDIT } from "../stores/pageStore";
 
     const options = ["No", "High", "Medium", "Low"];
     let title = "";
@@ -13,7 +13,7 @@
     let data;
     // re-render this component for load data project of ISSUES_PROJECT_ID
     $: if ($modalEditStore == true) {
-        data = $projectStore.find((project) => project.id == ISSUE_PROJECT_ID);
+        data = $projectStore.find((project) => project.id == PROJECT_ID_EDIT);
         loadDataProject(data);
     }
 

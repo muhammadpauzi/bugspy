@@ -30,7 +30,9 @@
     priorityCard={priority}
     onDelete={() => handleDeleteIssue(id)}
     onShowModalEdit={() => {
+        // issue's id that want to edit
         changeIssueIdEdit(id);
+        // show modal edit
         modalEditStore.set(true);
     }}
     onDblClickCard={() => {

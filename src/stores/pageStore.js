@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 const PROJECTS_PAGE = "projects";
-const ISSUES_PAGE = "bugs";
+const ISSUES_PAGE = "issues";
 let ISSUE_PROJECT_ID = null;
 let ISSUE_ID_EDIT = null;
 let PROJECT_ID_EDIT = null;
@@ -9,6 +9,7 @@ let PROJECT_ID_EDIT = null;
 const changeIssueProjectId = (id) => {
     ISSUE_PROJECT_ID = id;
 }
+
 const changeProjectIdEdit = (id) => {
     PROJECT_ID_EDIT = id;
 }

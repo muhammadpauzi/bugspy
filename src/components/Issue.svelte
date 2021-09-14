@@ -32,7 +32,6 @@
     onShowModalEdit={() => {
         changeIssueIdEdit(id);
         modalEditStore.set(true);
-        console.log($modalEditStore);
     }}
     onDblClickCard={() => {
         $issueStore = changeSolveIssue(id);

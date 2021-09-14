@@ -8,6 +8,7 @@
     import { changeIssueIdEdit } from "../stores/pageStore";
     import projectStore, { getCurrentProjects } from "../stores/projectStore";
     import { humanizeDate } from "../utils/date";
+    import { capitalizeFirstLetter } from "../utils/string";
 
     export let id;
     export let title = "";
@@ -44,7 +45,7 @@
     <div class="card-text">{description}</div>
     {#if category}
         <div class="tags">
-            <div class="tag">{category}</div>
+            <div class="tag">{capitalizeFirstLetter(category)}</div>
         </div>
     {/if}
     <small class="card-text">{humanizeDate(dateCreated)}</small>

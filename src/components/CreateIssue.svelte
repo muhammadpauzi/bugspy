@@ -28,12 +28,17 @@
             projectId: ISSUE_PROJECT_ID,
             dateCreated: Date.now(),
             description,
-            priority: selectedOptionPriority,
+            priority: selectedOptionPriority || "no",
         };
 
-        if (selectedOptionCategory != "no") {
+        if (selectedOptionCategory && selectedOptionCategory != "no") {
             issue.category = selectedOptionCategory;
         }
+
+        console.log("Create Issue");
+        console.log(selectedOptionCategory, selectedOptionPriority);
+        console.log(issue);
+        console.log("End Create Issue");
 
         // re-render issue's card
         $issueStore = createIssue(issue);

@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 import { getCurrentData, saveData } from '../utils/data';
-import { DBProject } from './projectStore';
+import { DBProject, getCurrentProjects } from './projectStore';
 
 const DBIssue = '_issues';
 
@@ -24,19 +24,20 @@ const createIssue = (issue) => {
 
 const deleteIssue = (id) => {
     let issues = getCurrentIssues();
-    issues = issues.filter(issue => issue.id !== id);
-    let projects = getCurrentData(DBProject)
-    issues = issues.map(issue => {
-        projects = projects.map(project => {
-            if (issue.projectId == project.id) {
-                project.issues -= 1;
+    let issuesWithoutDeleted = issues.filter(issue => issue.id !== id);
+    let deletedIssue = issues.find(issue => issue.id === id);
+    let projects = getCurrentProjects();
+    projects = projects.map(project => {
+        if (project.id == deletedIssue.projectId) {
+            if (deletedIssue.solved) {
+                project.completedIssues -= 1;
             }
-            return project;
-        });
-        saveData(DBProject, projects);
-        return issue;
-    });
-    return saveData(DBIssue, issues);
+            project.issues -= 1;
+        }
+        return project;
+    })
+    saveData(DBProject, projects);
+    return saveData(DBIssue, issuesWithoutDeleted);
 }
 
 const editIssue = (updatedIssue) => {

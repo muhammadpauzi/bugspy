@@ -5,6 +5,7 @@
     import projectStore, { deleteProject } from "../stores/projectStore";
     import pageStore, {
         changeIssueProjectId,
+        changeProjectIdEdit,
         ISSUES_PAGE,
     } from "../stores/pageStore";
     import { modalEditStore } from "../stores/modalStore";
@@ -44,7 +45,7 @@
     priorityCard={priority}
     onDelete={() => handleDeleteProject(id)}
     onShowModalEdit={() => {
-        changeIssueProjectId(id);
+        changeProjectIdEdit(id);
         modalEditStore.set(true);
     }}
     onClickCard={() => {

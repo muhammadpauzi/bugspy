@@ -9,10 +9,7 @@
     } from "../stores/pageStore";
     import { modalEditStore } from "../stores/modalStore";
     import { humanizeDate } from "../utils/date";
-    import issueStore, {
-        deleteIssue,
-        getCurrentIssues,
-    } from "../stores/issueStore";
+    import { deleteIssue, getCurrentIssues } from "../stores/issueStore";
 
     export let id = 0;
     export let title = "";

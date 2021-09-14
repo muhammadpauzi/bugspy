@@ -4,6 +4,8 @@
         changeSolveIssue,
         deleteIssue,
     } from "../stores/issueStore";
+    import { modalEditStore } from "../stores/modalStore";
+    import { changeIssueIdEdit } from "../stores/pageStore";
     import projectStore, { getCurrentProjects } from "../stores/projectStore";
     import { humanizeDate } from "../utils/date";
 
@@ -27,6 +29,11 @@
     titleCard={title}
     priorityCard={priority}
     onDelete={() => handleDeleteIssue(id)}
+    onShowModalEdit={() => {
+        changeIssueIdEdit(id);
+        modalEditStore.set(true);
+        console.log($modalEditStore);
+    }}
     onDblClickCard={() => {
         $issueStore = changeSolveIssue(id);
         // re-render data projects in project page

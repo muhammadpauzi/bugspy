@@ -39,6 +39,20 @@ const deleteIssue = (id) => {
     return saveData(DBIssue, issues);
 }
 
+const editIssue = (updatedIssue) => {
+    let issues = getCurrentIssues()
+    issues = issues.map((issue) => {
+        if (issue.id == updatedIssue.id) {
+            issue.title = updatedIssue.title;
+            issue.priority = updatedIssue.priority;
+            issue.description = updatedIssue.description;
+            issue.category = updatedIssue.category;
+        }
+        return issue;
+    });
+    return saveData(DBIssue, issues);
+}
+
 const changeSolveIssue = (id) => {
     let issues = getCurrentIssues();
     issues = issues.map(issue => {
@@ -70,5 +84,6 @@ export {
     getCurrentIssues,
     createIssue,
     deleteIssue,
-    changeSolveIssue
+    changeSolveIssue,
+    editIssue
 }

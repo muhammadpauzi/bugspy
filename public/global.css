@@ -61,6 +61,7 @@ li{
 	margin-bottom: 2rem;
 	overflow-x: hidden;
 	height: 4px;
+	border-radius: 2px;
 	background-color: var(--gray-color-3);
 	position: relative;
 }

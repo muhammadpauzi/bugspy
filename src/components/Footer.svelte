@@ -4,7 +4,7 @@
 
 <footer class="footer">
     <div class="container py-4">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
             <p>Created by Muhammad Pauzi.</p>
             <a href="https://github.com/muhammadpauzi/bugspy" target="_blank"
                 ><Icon name="github" /></a

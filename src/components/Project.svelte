@@ -60,7 +60,7 @@
                 >{$tweenedCompletedIssues.toFixed(0)}%
             </span>
             <span class="progress-bar-value">
-                {issues != 0 && issues == completedIssues ? "Completed" : ""}
+                {issues != 0 && issues == completedIssues ? "Solved" : ""}
             </span>
         </div>
         <div class="progress-bar">

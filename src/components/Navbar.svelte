@@ -61,7 +61,6 @@
                     on:click={downloadAsTodoFile}>Download as TODO file</Button
                 >
                 <Button
-                    class="me-1"
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}

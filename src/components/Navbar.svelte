@@ -1,34 +1,8 @@
 <script>
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
-    import pageStore, {
-        ISSUES_PAGE,
-        PROJECTS_PAGE,
-        ISSUE_PROJECT_ID,
-    } from "../stores/pageStore";
-    import { getCurrentIssues } from "../stores/issueStore";
-
-    const downloadAsTodoFile = () => {
-        if (confirm("Are you sure to download the file?")) {
-            let content = "";
-            let no = 1;
-            getCurrentIssues().map((issue) => {
-                if (issue.projectId == ISSUE_PROJECT_ID) {
-                    content += `${no}. ${issue.solved ? "✅" : "❌"} ${
-                        issue.title
-                    } - ${issue.description || "..."}\n`;
-                    no++;
-                }
-            });
-            const a = document.createElement("a");
-            const file = new Blob([content], { type: "plain/text" });
-
-            a.href = URL.createObjectURL(file);
-            a.download = "TODO";
-            a.click();
-            URL.revokeObjectURL(a.href);
-        }
-    };
+    import pageStore, { ISSUES_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
+    import { downloadAsTodoFile } from "../utils/download";
 </script>
 
 <nav class="navbar">
@@ -39,16 +13,14 @@
 
         {#if $pageStore == PROJECTS_PAGE}
             <Button
-                class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block"
+                class="d-none d-lg-inline-block d-md-inline-block"
                 on:click={() => {
                     modalCreateStore.set(true);
                 }}
                 resetMargin={true}>Create Project</Button
             >
         {:else if $pageStore == ISSUES_PAGE}
-            <div
-                class="d-none align-items-center d-lg-flex d-md-flex d-sm-flex"
-            >
+            <div class="d-none align-items-center d-lg-flex d-md-flex">
                 <Button
                     class="me-1"
                     resetMargin={true}

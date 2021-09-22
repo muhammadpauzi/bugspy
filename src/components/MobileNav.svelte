@@ -2,9 +2,10 @@
     import { modalCreateStore } from "../stores/modalStore";
     import Button from "../shared/Button.svelte";
     import pageStore, { PROJECTS_PAGE, ISSUES_PAGE } from "../stores/pageStore";
+    import { downloadAsTodoFile } from "../utils/download";
 </script>
 
-<div class="mobile-menu d-flex d-lg-none d-md-none d-sm-none">
+<div class="mobile-menu d-flex d-lg-none d-md-none">
     {#if $pageStore == PROJECTS_PAGE}
         <Button
             on:click={() => {
@@ -18,6 +19,11 @@
                 class="me-1"
                 resetMargin={true}
                 on:click={() => ($pageStore = PROJECTS_PAGE)}>Projects</Button
+            >
+            <Button
+                class="me-1"
+                resetMargin={true}
+                on:click={downloadAsTodoFile}>Download as TODO file</Button
             >
             <Button
                 on:click={() => {

@@ -8,33 +8,44 @@
 
 <div class="mobile-menu d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
-        <Button
-            class="text-white"
-            on:click={() => {
-                modalCreateStore.set(true);
-            }}
-            resetMargin={true}><Icon name="plus" /></Button
-        >
+        <div class="row">
+            <div class="col">
+                <Button
+                    class="text-white"
+                    on:click={() => {
+                        modalCreateStore.set(true);
+                    }}
+                    resetMargin={true}><Icon name="plus" /></Button
+                >
+            </div>
+        </div>
     {:else if $pageStore == ISSUES_PAGE}
-        <div class="d-flex align-items-center">
-            <Button
-                class="me-1 text-white"
-                resetMargin={true}
-                on:click={() => ($pageStore = PROJECTS_PAGE)}
-                ><Icon name="projects" /></Button
-            >
-            <Button
-                class="me-1 text-white"
-                resetMargin={true}
-                on:click={downloadAsTodoFile}><Icon name="download" /></Button
-            >
-            <Button
-                class="text-white"
-                on:click={() => {
-                    modalCreateStore.set(true);
-                }}
-                resetMargin={true}><Icon name="plus" /></Button
-            >
+        <div class="row g-1">
+            <div class="col-4">
+                <Button
+                    class="text-white"
+                    resetMargin={true}
+                    on:click={() => ($pageStore = PROJECTS_PAGE)}
+                    ><Icon name="projects" /></Button
+                >
+            </div>
+            <div class="col-4">
+                <Button
+                    class="text-white"
+                    resetMargin={true}
+                    on:click={downloadAsTodoFile}
+                    ><Icon name="download" /></Button
+                >
+            </div>
+            <div class="col-4">
+                <Button
+                    class="text-white"
+                    on:click={() => {
+                        modalCreateStore.set(true);
+                    }}
+                    resetMargin={true}><Icon name="plus" /></Button
+                >
+            </div>
         </div>
     {/if}
 </div>

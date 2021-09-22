@@ -1,7 +1,34 @@
 <script>
     import Button from "../shared/Button.svelte";
     import { modalCreateStore } from "../stores/modalStore";
-    import pageStore, { ISSUES_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
+    import pageStore, {
+        ISSUES_PAGE,
+        PROJECTS_PAGE,
+        ISSUE_PROJECT_ID,
+    } from "../stores/pageStore";
+    import { getCurrentIssues } from "../stores/issueStore";
+
+    const downloadAsTodoFile = () => {
+        if (confirm("Are you sure to download the file?")) {
+            let content = "";
+            let no = 1;
+            getCurrentIssues().map((issue) => {
+                if (issue.projectId == ISSUE_PROJECT_ID) {
+                    content += `${no}. ${issue.solved ? "✅" : "❌"} ${
+                        issue.title
+                    } - ${issue.description || "..."}\n`;
+                    no++;
+                }
+            });
+            const a = document.createElement("a");
+            const file = new Blob([content], { type: "plain/text" });
+
+            a.href = URL.createObjectURL(file);
+            a.download = "TODO";
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+    };
 </script>
 
 <nav class="navbar">
@@ -27,6 +54,11 @@
                     resetMargin={true}
                     on:click={() => ($pageStore = PROJECTS_PAGE)}
                     >Projects</Button
+                >
+                <Button
+                    class="me-1"
+                    resetMargin={true}
+                    on:click={downloadAsTodoFile}>Download as TODO file</Button
                 >
                 <Button
                     class="me-1"

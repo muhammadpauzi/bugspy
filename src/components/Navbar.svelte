@@ -13,35 +13,48 @@
         <a href="/" class="logo">Bugspy</a>
 
         {#if $pageStore == PROJECTS_PAGE}
-            <Button
-                class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block p-2 text-white"
-                on:click={() => {
-                    modalCreateStore.set(true);
-                }}
-                resetMargin={true}><Icon name="plus" /></Button
-            >
+            <div class="row">
+                <div class="col">
+                    <Button
+                        class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block p-2 text-white"
+                        on:click={() => {
+                            modalCreateStore.set(true);
+                        }}
+                        resetMargin={true}><Icon name="plus" /></Button
+                    >
+                </div>
+            </div>
         {:else if $pageStore == ISSUES_PAGE}
             <div
                 class="d-none align-items-center d-lg-flex d-md-flex d-sm-flex"
             >
-                <Button
-                    resetMargin={true}
-                    on:click={() => ($pageStore = PROJECTS_PAGE)}
-                    class="me-1 p-2 text-white"><Icon name="projects" /></Button
-                >
-                <Button
-                    class="me-1 p-2 text-white"
-                    resetMargin={true}
-                    on:click={downloadAsTodoFile}
-                    ><Icon name="download" /></Button
-                >
-                <Button
-                    on:click={() => {
-                        modalCreateStore.set(true);
-                    }}
-                    resetMargin={true}
-                    class="p-2 text-white"><Icon name="plus" /></Button
-                >
+                <div class="row g-1">
+                    <div class="col-4">
+                        <Button
+                            resetMargin={true}
+                            on:click={() => ($pageStore = PROJECTS_PAGE)}
+                            class="p-2 text-white"
+                            ><Icon name="projects" /></Button
+                        >
+                    </div>
+                    <div class="col-4">
+                        <Button
+                            class="p-2 text-white"
+                            resetMargin={true}
+                            on:click={downloadAsTodoFile}
+                            ><Icon name="download" /></Button
+                        >
+                    </div>
+                    <div class="col-4">
+                        <Button
+                            on:click={() => {
+                                modalCreateStore.set(true);
+                            }}
+                            resetMargin={true}
+                            class="p-2 text-white"><Icon name="plus" /></Button
+                        >
+                    </div>
+                </div>
             </div>
         {/if}
     </div>

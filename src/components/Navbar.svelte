@@ -3,6 +3,7 @@
     import { modalCreateStore } from "../stores/modalStore";
     import pageStore, { ISSUES_PAGE, PROJECTS_PAGE } from "../stores/pageStore";
     import { downloadAsTodoFile } from "../utils/download";
+    import Icon from "../shared/Icon.svelte";
 </script>
 
 <nav class="navbar">
@@ -13,30 +14,33 @@
 
         {#if $pageStore == PROJECTS_PAGE}
             <Button
-                class="d-none d-lg-inline-block d-md-inline-block"
+                class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block p-2 text-white"
                 on:click={() => {
                     modalCreateStore.set(true);
                 }}
-                resetMargin={true}>Create Project</Button
+                resetMargin={true}><Icon name="plus" /></Button
             >
         {:else if $pageStore == ISSUES_PAGE}
-            <div class="d-none align-items-center d-lg-flex d-md-flex">
+            <div
+                class="d-none align-items-center d-lg-flex d-md-flex d-sm-flex"
+            >
                 <Button
-                    class="me-1"
                     resetMargin={true}
                     on:click={() => ($pageStore = PROJECTS_PAGE)}
-                    >Projects</Button
+                    class="me-1 p-2 text-white"><Icon name="projects" /></Button
                 >
                 <Button
-                    class="me-1"
+                    class="me-1 p-2 text-white"
                     resetMargin={true}
-                    on:click={downloadAsTodoFile}>Download as TODO file</Button
+                    on:click={downloadAsTodoFile}
+                    ><Icon name="download" /></Button
                 >
                 <Button
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}
-                    resetMargin={true}>Create Issue</Button
+                    resetMargin={true}
+                    class="p-2 text-white"><Icon name="plus" /></Button
                 >
             </div>
         {/if}

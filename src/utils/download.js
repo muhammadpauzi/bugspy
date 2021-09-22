@@ -2,7 +2,7 @@ import { getCurrentIssues } from "../stores/issueStore";
 import { ISSUE_PROJECT_ID } from "../stores/pageStore";
 
 const downloadAsTodoFile = () => {
-    if (confirm("Are you sure to download the file?")) {
+    if (confirm("Are you sure to download the TODO file of this project?")) {
         let content = "";
         let no = 1;
         getCurrentIssues().map((issue) => {

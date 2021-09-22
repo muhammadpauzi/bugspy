@@ -3,33 +3,37 @@
     import Button from "../shared/Button.svelte";
     import pageStore, { PROJECTS_PAGE, ISSUES_PAGE } from "../stores/pageStore";
     import { downloadAsTodoFile } from "../utils/download";
+    import Icon from "../shared/Icon.svelte";
 </script>
 
-<div class="mobile-menu d-flex d-lg-none d-md-none">
+<div class="mobile-menu d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
         <Button
+            class="text-white"
             on:click={() => {
                 modalCreateStore.set(true);
             }}
-            resetMargin={true}>Create Project</Button
+            resetMargin={true}><Icon name="plus" /></Button
         >
     {:else if $pageStore == ISSUES_PAGE}
         <div class="d-flex align-items-center">
             <Button
-                class="me-1"
+                class="me-1 text-white"
                 resetMargin={true}
-                on:click={() => ($pageStore = PROJECTS_PAGE)}>Projects</Button
+                on:click={() => ($pageStore = PROJECTS_PAGE)}
+                ><Icon name="projects" /></Button
             >
             <Button
-                class="me-1"
+                class="me-1 text-white"
                 resetMargin={true}
-                on:click={downloadAsTodoFile}>Download as TODO file</Button
+                on:click={downloadAsTodoFile}><Icon name="download" /></Button
             >
             <Button
+                class="text-white"
                 on:click={() => {
                     modalCreateStore.set(true);
                 }}
-                resetMargin={true}>Create Issue</Button
+                resetMargin={true}><Icon name="plus" /></Button
             >
         </div>
     {/if}

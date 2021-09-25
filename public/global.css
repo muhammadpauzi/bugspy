@@ -47,6 +47,10 @@ li{
 	list-style: none;
 }
 
+.w-100{
+	width: 100% !important;
+}
+
 /* progress bar */
 .progress-bar-value{
 	display: block;
@@ -183,7 +187,7 @@ li{
 }
 
 .text-green{
-	font-weight: var(--font-medium);
+	/* font-weight: var(--font-medium); */
 	color: var(--green-color) !important;
 	fill: var(--green-color) !important;
 }

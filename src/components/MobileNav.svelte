@@ -8,21 +8,15 @@
 
 <div class="mobile-nav d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
-        <div class="row">
-            <div class="col">
-                <Button
-                    class="p-3 text-white"
-                    on:click={() => {
-                        modalCreateStore.set(true);
-                    }}
-                    resetMargin={true}
-                    ><Icon name="plus" class="pb-1" />
-                    <div class="mobile-nav-small-text">
-                        Create Project
-                    </div></Button
-                >
-            </div>
-        </div>
+        <Button
+            class="p-3 text-white"
+            on:click={() => {
+                modalCreateStore.set(true);
+            }}
+            resetMargin={true}
+            ><Icon name="plus" class="pb-1" />
+            <div class="mobile-nav-small-text">Create Project</div></Button
+        >
     {:else if $pageStore == ISSUES_PAGE}
         <div class="d-flex align-items-center">
             <Button
@@ -65,7 +59,6 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        overflow-x: scroll;
         z-index: 999;
     }
 

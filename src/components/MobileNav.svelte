@@ -6,7 +6,7 @@
     import Icon from "../shared/Icon.svelte";
 </script>
 
-<div class="mobile-menu d-flex d-lg-none d-md-none d-sm-none">
+<div class="mobile-nav d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
         <div class="row">
             <div class="col">
@@ -17,7 +17,7 @@
                     }}
                     resetMargin={true}
                     ><Icon name="plus" class="pb-1" />
-                    <div class="mobile-menu-small-text">
+                    <div class="mobile-nav-small-text">
                         Create Project
                     </div></Button
                 >
@@ -30,14 +30,14 @@
                 resetMargin={true}
                 on:click={() => ($pageStore = PROJECTS_PAGE)}
                 ><Icon name="projects" class="pb-1" />
-                <div class="mobile-menu-small-text">Projects</div></Button
+                <div class="mobile-nav-small-text">Projects</div></Button
             >
             <Button
                 class="text-white mx-1 p-3"
                 resetMargin={true}
                 on:click={downloadAsTodoFile}
                 ><Icon name="download" class="pb-1" />
-                <div class="mobile-menu-small-text">Download TODO</div></Button
+                <div class="mobile-nav-small-text">Download TODO</div></Button
             >
             <Button
                 class="text-white p-3"
@@ -46,14 +46,14 @@
                 }}
                 resetMargin={true}
                 ><Icon name="plus" class="pb-1" />
-                <div class="mobile-menu-small-text">Create Issue</div></Button
+                <div class="mobile-nav-small-text">Create Issue</div></Button
             >
         </div>
     {/if}
 </div>
 
 <style>
-    .mobile-menu {
+    .mobile-nav {
         background-color: rgba(255, 255, 255, 0.1);
         padding: 0.4rem;
         backdrop-filter: blur(10px);
@@ -69,7 +69,7 @@
         z-index: 999;
     }
 
-    .mobile-menu-small-text {
+    .mobile-nav-small-text {
         font-size: 0.7rem;
     }
 </style>

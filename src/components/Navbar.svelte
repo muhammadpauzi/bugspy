@@ -16,11 +16,12 @@
             <div class="row">
                 <div class="col">
                     <Button
-                        class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block p-2 text-white"
+                        class="d-none d-lg-flex d-md-flex d-sm-flex p-2 text-white align-items-center"
                         on:click={() => {
                             modalCreateStore.set(true);
                         }}
-                        resetMargin={true}><Icon name="plus" /></Button
+                        resetMargin={true}
+                        ><Icon name="plus" class="pe-1" /> Create Project</Button
                     >
                 </div>
             </div>
@@ -28,33 +29,26 @@
             <div
                 class="d-none align-items-center d-lg-flex d-md-flex d-sm-flex"
             >
-                <div class="row g-1">
-                    <div class="col-4">
-                        <Button
-                            resetMargin={true}
-                            on:click={() => ($pageStore = PROJECTS_PAGE)}
-                            class="p-2 text-white"
-                            ><Icon name="projects" /></Button
-                        >
-                    </div>
-                    <div class="col-4">
-                        <Button
-                            class="p-2 text-white"
-                            resetMargin={true}
-                            on:click={downloadAsTodoFile}
-                            ><Icon name="download" /></Button
-                        >
-                    </div>
-                    <div class="col-4">
-                        <Button
-                            on:click={() => {
-                                modalCreateStore.set(true);
-                            }}
-                            resetMargin={true}
-                            class="p-2 text-white"><Icon name="plus" /></Button
-                        >
-                    </div>
-                </div>
+                <Button
+                    resetMargin={true}
+                    on:click={() => ($pageStore = PROJECTS_PAGE)}
+                    class="p-2 text-white d-flex align-items-center me-1"
+                    ><Icon name="projects" class="pe-1" /> Projects</Button
+                >
+                <Button
+                    class="p-2 text-white d-flex align-items-center me-1"
+                    resetMargin={true}
+                    on:click={downloadAsTodoFile}
+                    ><Icon name="download" class="pe-1" /> Download TODO</Button
+                >
+                <Button
+                    on:click={() => {
+                        modalCreateStore.set(true);
+                    }}
+                    resetMargin={true}
+                    class="p-2 text-white d-flex align-items-center"
+                    ><Icon name="plus" class="pe-1" /> Create Issue</Button
+                >
             </div>
         {/if}
     </div>

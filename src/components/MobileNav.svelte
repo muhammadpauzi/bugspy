@@ -9,7 +9,7 @@
 <div class="mobile-nav d-flex d-lg-none d-md-none d-sm-none">
     {#if $pageStore == PROJECTS_PAGE}
         <Button
-            class="text-white pt-2 pb-3 w-100"
+            class="text-white p-2 w-100"
             on:click={() => {
                 modalCreateStore.set(true);
             }}
@@ -21,7 +21,7 @@
         <div class="row g-1 w-100">
             <div class="col-4">
                 <Button
-                    class="text-white pt-2 pb-3 w-100"
+                    class="text-white p-2 w-100"
                     resetMargin={true}
                     on:click={() => ($pageStore = PROJECTS_PAGE)}
                     ><Icon name="projects" class="pb-1" />
@@ -30,7 +30,7 @@
             </div>
             <div class="col-4">
                 <Button
-                    class="text-white pt-2 pb-3 w-100"
+                    class="text-white p-2 w-100"
                     resetMargin={true}
                     on:click={downloadAsTodoFile}
                     ><Icon name="download" class="pb-1" />
@@ -41,7 +41,7 @@
             </div>
             <div class="col-4">
                 <Button
-                    class="text-white pt-2 pb-3 w-100"
+                    class="text-white p-2 w-100"
                     on:click={() => {
                         modalCreateStore.set(true);
                     }}
@@ -73,6 +73,6 @@
     }
 
     .mobile-nav-small-text {
-        font-size: 0.5rem;
+        font-size: 0.65rem;
     }
 </style>
